@@ -11,8 +11,13 @@ export const GlobalStyle = createGlobalStyle`
 
   }
   body {
+
     padding: 25px;
     background-color: ${(props) => props.theme.colors.background};
+    ${(props) => props.theme.media.mobile} {
+        width: 100%;
+        padding-top: 30px;
+    }
   }
 
 `;
