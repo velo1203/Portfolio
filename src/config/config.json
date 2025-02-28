@@ -1,0 +1,45 @@
+{
+    "Techstack": [
+        {
+            "type": "Language",
+            "stack": ["Python", "Typescript", "Go", "Sql"]
+        },
+        { "type": "Frontend", "stack": ["React", "Next", "Redux"] },
+        { "type": "Backend", "stack": ["Nest", "Flask/FastAPI"] },
+        { "type": "Tool", "stack": ["Swagger", "Figma", "Github"] }
+    ],
+    "Education": {
+        "day": "2024~2027",
+        "school": "Korea Digital Media High School"
+    },
+    "Experience": [
+        {
+            "day": "2025",
+            "content": "GPTC 프로젝트 IT 인프라 총괄"
+        },
+        {
+            "day": "2024",
+            "content": "Junction Asia 2024 Participation"
+        },
+        {
+            "day": "2024",
+            "content": "KDMHS Luna 7th Member "
+        },
+        {
+            "day": "2023",
+            "content": "코딩스쿨 LMS 프론트엔드 외주 개발"
+        }
+    ],
+    "Award": [
+        {
+            "day": "2024",
+            "content": "전국 고등학교 동아리 SW경진대회",
+            "prize": "icon/bronze.svg"
+        },
+        {
+            "day": "2024",
+            "content": "한양대학교 에리카 고교 CID",
+            "prize": "icon/bronze.svg"
+        }
+    ]
+}
