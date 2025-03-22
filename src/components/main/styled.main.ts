@@ -188,8 +188,8 @@ export const GridUl = styled.ul`
     .gridli {
         display: flex;
         align-items: center;
-        gap: 20px;
 
+        gap: 5px;
         ${(props) => props.theme.media.mobile} {
             flex-direction: row;
             align-items: flex-start;
@@ -200,6 +200,7 @@ export const GridUl = styled.ul`
             font-size: ${(props) => props.theme.mobileFontSize.small};
             color: ${(props) => props.theme.colors.secondary};
             font-weight: 500;
+            margin-right: 4px;
         }
         p {
             flex-grow: 1;
