@@ -36,14 +36,16 @@
     ],
     "Award": [
         {
-            "day": "2024",
-            "content": "전국 고등학교 동아리 SW경진대회",
-            "prize": "icon/bronze.svg"
+            "day": "2025",
+            "content": "직업계고 창업 아이디어 공모전 대상 (교육부장관상)"
         },
         {
             "day": "2024",
-            "content": "한양대학교 에리카 고교 CID",
-            "prize": "icon/bronze.svg"
+            "content": "전국 고등학교 동아리 SW경진대회 동상"
+        },
+        {
+            "day": "2024",
+            "content": "한양대학교 에리카 고교 CID 동상"
         }
     ]
 }

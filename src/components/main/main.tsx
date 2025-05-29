@@ -101,11 +101,6 @@ export default function Main() {
                                     <li className="gridli">
                                         <h1>{awd.day}</h1>
                                         <p>{awd.content}</p>
-                                        <img
-                                            src={awd.prize}
-                                            className="grade"
-                                            alt="award"
-                                        />
                                     </li>
                                 ))}
                             </GridUl>
