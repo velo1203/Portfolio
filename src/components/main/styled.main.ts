@@ -66,7 +66,6 @@ export const MainContent = styled.div`
         gap: 30px;
     }
 `;
-
 export const ImageSubContainer = styled(motion.div).attrs(() => ({
     initial: "hidden",
     animate: "visible",
@@ -77,15 +76,16 @@ export const ImageSubContainer = styled(motion.div).attrs(() => ({
     align-items: center;
 
     img {
-        width: 300px;
+        width: 240px;
         margin-top: 100px;
         border-radius: 5px;
 
-        ${(props) => props.theme.media.mobile} {
-            width: 200px;
-            margin-top: 50px;
+        ${(props) => props.theme.media.tablet} {
+            width: 250px;
+            margin-top: 70px;
         }
     }
+
     .icon {
         width: 30px;
         margin-top: 25px;
@@ -94,6 +94,16 @@ export const ImageSubContainer = styled(motion.div).attrs(() => ({
 
         &:hover {
             transform: scale(1.1);
+        }
+
+        ${(props) => props.theme.media.tablet} {
+            width: 25px;
+            margin-top: 20px;
+        }
+
+        ${(props) => props.theme.media.mobile} {
+            width: 20px;
+            margin-top: 15px;
         }
     }
 `;
