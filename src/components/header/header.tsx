@@ -4,7 +4,7 @@ export default function Header() {
     return (
         <MainHeader>
             <div className="logo">
-                SIM<span>.</span>
+                devho<span>.</span>
             </div>
             <nav>
                 <a href="#about">About</a>
