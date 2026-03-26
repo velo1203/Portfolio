@@ -1,246 +1,313 @@
 import { motion } from "framer-motion";
-import { lighten } from "polished";
 import styled from "styled-components";
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.2 },
-    },
-};
-
-const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
-export const Container = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: containerVariants,
-}))`
-    width: 80%;
+export const PageWrapper = styled.div`
+    max-width: 980px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 0 40px 160px;
 
     ${(props) => props.theme.media.mobile} {
-        width: 100%;
-        padding-top: 30px;
+        padding: 0 20px 100px;
     }
 `;
 
-export const MainHeader = styled(motion.header).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
-    span {
-        display: block;
-        width: 30px;
-        height: 10px;
-        background-color: ${(props) => props.theme.colors.primary};
-    }
-    h1 {
-        font-size: ${(props) => props.theme.mobileFontSize.large};
-        color: ${(props) => props.theme.colors.text};
+// ── Hero ──────────────────────────────────────────────────────────────────────
 
-        ${(props) => props.theme.media.tablet} {
-            font-size: ${(props) => props.theme.mobileFontSize.large};
-        }
-
-        ${(props) => props.theme.media.mobile} {
-            font-size: ${(props) => props.theme.mobileFontSize.medium};
-        }
-    }
-`;
-
-export const MainContent = styled.div`
-    display: flex;
-    justify-content: space-between;
-    gap: 50px;
-
-    ${(props) => props.theme.media.tablet} {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-`;
-export const ImageSubContainer = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
+export const HeroSection = styled(motion.section)`
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding-top: 52px;
+    position: relative;
 
-    img {
-        width: 240px;
-        margin-top: 100px;
-        border-radius: 5px;
-
-        ${(props) => props.theme.media.tablet} {
-            width: 250px;
-            margin-top: 70px;
-        }
-    }
-
-    .icon {
-        width: 30px;
-        margin-top: 25px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-
-        &:hover {
-            transform: scale(1.1);
-        }
-
-        ${(props) => props.theme.media.tablet} {
-            width: 25px;
-            margin-top: 20px;
-        }
-
-        ${(props) => props.theme.media.mobile} {
-            width: 20px;
-            margin-top: 15px;
-        }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(123, 110, 246, 0.14) 0%, rgba(77, 157, 224, 0.06) 60%, transparent 80%);
+        pointer-events: none;
     }
 `;
 
-export const ContentSubContainer = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
-    flex: 1;
-    padding: 25px;
-    margin-left: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-
-    ${(props) => props.theme.media.tablet} {
-        margin-left: 0;
-        text-align: center;
-        align-items: center;
-        padding: 0;
-    }
-
-    .content-head {
-        h1 {
-            font-weight: 300;
-            font-size: ${(props) => props.theme.mobileFontSize.large};
-
-            ${(props) => props.theme.media.mobile} {
-                font-size: ${(props) => props.theme.mobileFontSize.medium};
-            }
-        }
-    }
+export const HeroEyebrow = styled(motion.p)`
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 500;
+    margin-bottom: 18px;
 `;
 
-export const HeadSpan = styled.span<{ name?: boolean }>`
+export const HeroName = styled(motion.h1)`
+    font-size: clamp(3rem, 7vw, 5.2rem);
     font-weight: 700;
-    color: ${(props) =>
-        props.name ? props.theme.colors.primary : props.theme.colors.text};
+    line-height: 1.05;
+    color: ${(props) => props.theme.colors.text};
+    margin-bottom: 10px;
+    letter-spacing: -0.04em;
 `;
 
-export const ContainerGrid = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: containerVariants,
-}))`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    ${(props) => props.theme.media.tablet} {
-        grid-template-columns: 1fr;
-    }
+export const HeroSub = styled(motion.h2)`
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: ${(props) => props.theme.colors.textMuted};
+    margin-bottom: 36px;
+    letter-spacing: -0.02em;
 `;
 
-export const GridBox = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
-    padding: 20px;
-    border-radius: 10px;
-    ${(props) => props.theme.media.tablet} {
-        min-height: 300px;
-        padding: 0px;
-    }
-    .gridhead {
-        span {
-            display: block;
-            width: 20px;
-            height: 8px;
-            background-color: ${(props) => props.theme.colors.primary};
-        }
-        h1 {
-            font-size: ${(props) => props.theme.mobileFontSize.medium};
-            color: ${(props) => props.theme.colors.text};
-
-            ${(props) => props.theme.media.mobile} {
-                font-size: ${(props) => props.theme.mobileFontSize.small};
-            }
-        }
-    }
+export const HeroDesc = styled(motion.p)`
+    font-size: 1.05rem;
+    color: ${(props) => props.theme.colors.textMuted};
+    line-height: 1.9;
+    max-width: 520px;
+    margin-bottom: 52px;
+    letter-spacing: -0.01em;
 `;
 
-export const GridUl = styled.ul`
-    margin-top: 15px;
-    list-style: none;
+export const HeroActions = styled(motion.div)`
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    .gridli {
-        display: flex;
-        align-items: center;
-
-        gap: 5px;
-        ${(props) => props.theme.media.mobile} {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        h1 {
-            font-size: ${(props) => props.theme.mobileFontSize.small};
-            color: ${(props) => props.theme.colors.secondary};
-            font-weight: 500;
-            margin-right: 4px;
-        }
-        p {
-            flex-grow: 1;
-            text-align: left;
-            font-size: ${(props) => props.theme.mobileFontSize.small};
-            font-weight: 500;
-            color: ${(props) => props.theme.colors.text};
-        }
-        .grade {
-            width: 25px;
-            height: 25px;
-        }
-    }
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
 `;
 
-export const SkillTag = styled(motion.span).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
-    display: inline-block;
-    padding: 5px 10px;
-    border: 1.5px solid ${(props) => lighten(0.3, props.theme.colors.primary)};
-    color: ${(props) => lighten(0.2, props.theme.colors.text)};
-    border-radius: 7px;
-    transition: background-color 0.15s ease, transform 0.2s ease;
+export const GithubButton = styled.button`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    background: linear-gradient(
+        135deg,
+        ${(props) => props.theme.colors.gradientStart},
+        ${(props) => props.theme.colors.gradientEnd}
+    );
+    color: #fff;
+    border: none;
+    border-radius: 980px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.15s ease;
+    letter-spacing: -0.01em;
 
     &:hover {
-        background-color: ${(props) =>
-            lighten(0.4, props.theme.colors.primary)};
-        transform: scale(1.1);
+        filter: brightness(1.1);
+        transform: translateY(-1px);
     }
+
+    &:active {
+        transform: translateY(0);
+        filter: brightness(0.95);
+    }
+`;
+
+export const EducationBadge = styled(motion.div)`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: ${(props) => props.theme.colors.surface};
+    border: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    border-radius: 980px;
+    font-size: 0.85rem;
+    color: ${(props) => props.theme.colors.textMuted};
+    backdrop-filter: blur(10px);
+    letter-spacing: -0.01em;
+
+    span.year {
+        color: ${(props) => props.theme.colors.primary};
+        font-weight: 600;
+    }
+`;
+
+// ── Section shared ────────────────────────────────────────────────────────────
+
+export const Section = styled(motion.section)`
+    margin-top: 120px;
+`;
+
+export const SectionLabel = styled.div`
+    margin-bottom: 36px;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: ${(props) => props.theme.colors.text};
+        letter-spacing: -0.03em;
+    }
+`;
+
+// ── Skills ────────────────────────────────────────────────────────────────────
+
+export const SkillTable = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const SkillRow = styled(motion.div)`
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 22px 0;
+    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+
+    &:first-child {
+        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    }
+
+    ${(props) => props.theme.media.mobile} {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .category {
+        flex-shrink: 0;
+        width: 96px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: linear-gradient(
+            135deg,
+            ${(props) => props.theme.colors.gradientStart},
+            ${(props) => props.theme.colors.gradientEnd}
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding-top: 4px;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+`;
+
+export const Tag = styled.span`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: rgba(123, 143, 247, 0.1);
+    color: ${(props) => props.theme.colors.text};
+    border-radius: 980px;
+    font-size: 0.83rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(123, 143, 247, 0.2);
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    svg {
+        font-size: 0.95rem;
+        opacity: 0.85;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        background: rgba(123, 143, 247, 0.2);
+        border-color: rgba(123, 143, 247, 0.4);
+    }
+`;
+
+// ── Timeline ──────────────────────────────────────────────────────────────────
+
+export const Timeline = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const TimelineItem = styled(motion.div)`
+    display: flex;
+    gap: 32px;
+    padding: 22px 0;
+    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+
+    &:first-child {
+        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    }
+
+    .year {
+        flex-shrink: 0;
+        width: 72px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: ${(props) => props.theme.colors.primary};
+        padding-top: 2px;
+        letter-spacing: -0.01em;
+    }
+
+    .info .title {
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: ${(props) => props.theme.colors.text};
+        line-height: 1.6;
+        letter-spacing: -0.01em;
+    }
+`;
+
+// ── Awards ────────────────────────────────────────────────────────────────────
+
+export const AwardList = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+export const AwardItem = styled(motion.div)`
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+
+    &:first-child {
+        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    }
+
+    .medal {
+        width: 40px;
+        height: 40px;
+        background: ${(props) => props.theme.colors.primaryGlow};
+        border: 1px solid rgba(41, 151, 255, 0.25);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: ${(props) => props.theme.colors.primary};
+        font-size: 1rem;
+    }
+
+    .content {
+        .year {
+            font-size: 0.75rem;
+            color: ${(props) => props.theme.colors.primary};
+            font-weight: 500;
+            margin-bottom: 4px;
+            letter-spacing: 0.02em;
+        }
+        .title {
+            font-size: 0.95rem;
+            color: ${(props) => props.theme.colors.text};
+            font-weight: 400;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
+    }
+`;
+
+// ── Divider ───────────────────────────────────────────────────────────────────
+
+export const FooterBar = styled.footer`
+    margin-top: 140px;
+    padding-top: 28px;
+    border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    text-align: center;
+    font-size: 0.78rem;
+    color: ${(props) => props.theme.colors.textMuted};
+    letter-spacing: -0.01em;
 `;
