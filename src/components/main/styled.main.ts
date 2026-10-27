@@ -7,7 +7,7 @@ export const PageWrapper = styled.div`
     padding: 0 40px 160px;
 
     ${({ theme }) => theme.media.mobile} {
-        padding: 0 20px 100px;
+        padding: 0 20px 72px;
     }
 `;
 
@@ -26,6 +26,11 @@ const listRow = css`
 export const Section = styled(motion.section)`
     margin-top: ${({ theme }) => theme.space.section};
     scroll-margin-top: 80px;
+
+    ${({ theme }) => theme.media.mobile} {
+        margin-top: 88px;
+        scroll-margin-top: 68px;
+    }
 `;
 
 export const SectionLabel = styled.div`
@@ -36,6 +41,14 @@ export const SectionLabel = styled.div`
         font-weight: ${({ theme }) => theme.fontWeight.bold};
         color: ${({ theme }) => theme.colors.text};
         letter-spacing: -0.03em;
+    }
+
+    ${({ theme }) => theme.media.mobile} {
+        margin-bottom: ${({ theme }) => theme.space.xl};
+
+        h2 {
+            font-size: 1.625rem;
+        }
     }
 `;
 
@@ -59,23 +72,10 @@ export const Tag = styled.span`
         color: ${({ theme }) => theme.colors.textSecondary};
     }
 
-    &:hover {
-        border-color: ${({ theme }) => theme.colors.accent};
-    }
-`;
-
-export const LiveDot = styled.span`
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: ${({ theme }) => theme.colors.success};
-
-    &::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: currentColor;
+    ${({ theme }) => theme.media.hover} {
+        &:hover {
+            border-color: ${({ theme }) => theme.colors.accent};
+        }
     }
 `;
 
@@ -87,6 +87,11 @@ export const HeroSection = styled(motion.section)`
     flex-direction: column;
     justify-content: center;
     padding-top: ${({ theme }) => theme.layout.headerHeight};
+
+    ${({ theme }) => theme.media.mobile} {
+        min-height: auto;
+        padding-top: calc(${({ theme }) => theme.layout.headerHeight} + 72px);
+    }
 `;
 
 export const HeroGrid = styled.div`
@@ -125,10 +130,16 @@ export const HeroName = styled(motion.h1)`
 
 export const EducationBadge = styled(motion.p)`
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: ${({ theme }) => theme.space.md};
+    gap: ${({ theme }) => theme.space.xs} ${({ theme }) => theme.space.md};
     margin-bottom: 40px;
     font-size: ${({ theme }) => theme.fontSize.lg};
+
+    ${({ theme }) => theme.media.mobile} {
+        margin-bottom: 32px;
+        font-size: ${({ theme }) => theme.fontSize.md};
+    }
     color: ${({ theme }) => theme.colors.textSecondary};
     letter-spacing: -0.01em;
 
@@ -162,9 +173,11 @@ export const GithubButton = styled.button`
         background ${({ theme }) => theme.transition.base},
         transform ${({ theme }) => theme.transition.fast};
 
-    &:hover {
-        background: ${({ theme }) => theme.colors.accentHover};
-        transform: translateY(-1px);
+    ${({ theme }) => theme.media.hover} {
+        &:hover {
+            background: ${({ theme }) => theme.colors.accentHover};
+            transform: translateY(-1px);
+        }
     }
 
     &:active {
@@ -177,7 +190,7 @@ export const PreviewStack = styled(motion.div)`
     height: 380px;
 
     ${({ theme }) => theme.media.mobile} {
-        height: 260px;
+        height: 250px;
     }
 `;
 
@@ -199,14 +212,23 @@ export const PreviewCard = styled.a<{ $index: number }>`
         top ${({ theme }) => theme.transition.slow},
         border-color ${({ theme }) => theme.transition.base};
 
-    ${PreviewStack}:hover & {
-        top: ${(props) => props.$index * 64}px;
-        transform: rotate(${(props) => (props.$index - 1) * 4}deg);
+    ${({ theme }) => theme.media.hover} {
+        ${PreviewStack}:hover & {
+            top: ${(props) => props.$index * 64}px;
+            transform: rotate(${(props) => (props.$index - 1) * 4}deg);
+        }
+
+        &:hover {
+            border-color: ${({ theme }) => theme.colors.accent};
+            z-index: 4;
+        }
     }
 
-    &:hover {
-        border-color: ${({ theme }) => theme.colors.accent};
-        z-index: 4;
+    ${({ theme }) => theme.media.mobile} {
+        width: 82%;
+        top: ${(props) => props.$index * 40}px;
+        left: ${(props) => props.$index * 9}%;
+        transform: rotate(${(props) => (props.$index - 1) * 2}deg);
     }
 
     .label {
@@ -234,6 +256,7 @@ export const ProjectGrid = styled.div`
 
     ${({ theme }) => theme.media.mobile} {
         grid-template-columns: 1fr;
+        gap: ${({ theme }) => theme.space.lg};
     }
 `;
 
@@ -249,9 +272,11 @@ export const ProjectCard = styled(motion.article)`
         border-color ${({ theme }) => theme.transition.base},
         transform ${({ theme }) => theme.transition.base};
 
-    &:hover {
-        border-color: ${({ theme }) => theme.colors.borderStrong};
-        transform: translateY(-3px);
+    ${({ theme }) => theme.media.hover} {
+        &:hover {
+            border-color: ${({ theme }) => theme.colors.borderStrong};
+            transform: translateY(-3px);
+        }
     }
 
     .body {
@@ -260,6 +285,10 @@ export const ProjectCard = styled(motion.article)`
         gap: ${({ theme }) => theme.space.md};
         padding: 22px ${({ theme }) => theme.space.xl} ${({ theme }) => theme.space.xl};
         flex: 1;
+
+        ${({ theme }) => theme.media.mobile} {
+            padding: 18px 20px 20px;
+        }
     }
 
     .meta {
@@ -268,6 +297,13 @@ export const ProjectCard = styled(motion.article)`
         gap: 10px;
         font-size: ${({ theme }) => theme.fontSize.xs};
         color: ${({ theme }) => theme.colors.textTertiary};
+    }
+
+    .titleRow {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: ${({ theme }) => theme.space.md};
     }
 
     h3 {
@@ -290,19 +326,12 @@ export const ProjectCard = styled(motion.article)`
         letter-spacing: -0.01em;
     }
 
-    .footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: ${({ theme }) => theme.space.lg};
-        margin-top: auto;
-        padding-top: ${({ theme }) => theme.space.sm};
-    }
-
     .tags {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
+        margin-top: auto;
+        padding-top: ${({ theme }) => theme.space.sm};
     }
 `;
 
@@ -310,7 +339,8 @@ export const SiteButton = styled.a`
     display: inline-flex;
     align-items: center;
     gap: ${({ theme }) => theme.space.sm};
-    padding: 10px 18px;
+    flex-shrink: 0;
+    padding: 8px 16px;
     background: ${({ theme }) => theme.colors.accent};
     color: ${({ theme }) => theme.colors.onAccent};
     border-radius: ${({ theme }) => theme.radius.pill};
@@ -322,8 +352,10 @@ export const SiteButton = styled.a`
         font-size: 1rem;
     }
 
-    &:hover {
-        background: ${({ theme }) => theme.colors.accentHover};
+    ${({ theme }) => theme.media.hover} {
+        &:hover {
+            background: ${({ theme }) => theme.colors.accentHover};
+        }
     }
 `;
 
@@ -416,6 +448,10 @@ export const AwardItem = styled(motion.div)`
     align-items: center;
     gap: ${({ theme }) => theme.space.xl};
 
+    ${({ theme }) => theme.media.mobile} {
+        gap: ${({ theme }) => theme.space.lg};
+    }
+
     .medal {
         width: 40px;
         height: 40px;
@@ -453,6 +489,11 @@ export const AwardItem = styled(motion.div)`
 export const FooterBar = styled.footer`
     margin-top: 140px;
     padding-top: 28px;
+
+    ${({ theme }) => theme.media.mobile} {
+        margin-top: 96px;
+    }
+
     border-top: 1px solid ${({ theme }) => theme.colors.border};
     text-align: center;
     font-size: ${({ theme }) => theme.fontSize.xs};

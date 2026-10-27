@@ -39,7 +39,6 @@ import {
     HeroLeft,
     HeroName,
     HeroSection,
-    LiveDot,
     PreviewCard,
     PreviewStack,
     ProjectCard,
@@ -159,10 +158,7 @@ export default function Main() {
                                 href={`#project-${p.id}`}
                             >
                                 <ProjectThumb project={p} />
-                                <span className="label">
-                                    {p.live && <LiveDot />}
-                                    {p.name}
-                                </span>
+                                <span className="label">{p.name}</span>
                             </PreviewCard>
                         ))}
                     </PreviewStack>
@@ -196,21 +192,8 @@ export default function Main() {
                                 <div className="meta">
                                     <span>{p.kind}</span>
                                 </div>
-                                <h3>{p.name}</h3>
-                                <p className="summary">{p.summary}</p>
-                                <p className="description">{p.description}</p>
-                                <div className="footer">
-                                    <div className="tags">
-                                        {p.stack.map((sk) => {
-                                            const Icon = skillIconMap[sk];
-                                            return (
-                                                <Tag key={sk}>
-                                                    {Icon && <Icon />}
-                                                    {sk}
-                                                </Tag>
-                                            );
-                                        })}
-                                    </div>
+                                <div className="titleRow">
+                                    <h3>{p.name}</h3>
                                     {p.live && (
                                         <SiteButton
                                             href={p.live}
@@ -221,6 +204,19 @@ export default function Main() {
                                             사이트 보기
                                         </SiteButton>
                                     )}
+                                </div>
+                                <p className="summary">{p.summary}</p>
+                                <p className="description">{p.description}</p>
+                                <div className="tags">
+                                        {p.stack.map((sk) => {
+                                            const Icon = skillIconMap[sk];
+                                            return (
+                                                <Tag key={sk}>
+                                                    {Icon && <Icon />}
+                                                    {sk}
+                                                </Tag>
+                                            );
+                                        })}
                                 </div>
                             </div>
                         </ProjectCard>

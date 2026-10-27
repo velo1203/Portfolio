@@ -3,11 +3,13 @@ import { MainHeader } from "./styled.header";
 export default function Header() {
     return (
         <MainHeader>
-            <div className="logo">
+            <a className="logo" href="#about">
                 devho<span>.</span>
-            </div>
+            </a>
             <nav>
-                <a href="#about">About</a>
+                <a className="top" href="#about">
+                    About
+                </a>
                 <a href="#projects">Projects</a>
                 <a href="#skills">Skills</a>
                 <a href="#awards">Awards</a>

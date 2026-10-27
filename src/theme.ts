@@ -23,8 +23,6 @@ export const theme = {
         accentBorder: "#2c3466",
         onAccent: "#ffffff",
 
-        success: "#4ade80",
-
         // 썸네일처럼 밝은 바탕이 필요한 곳
         paper: "#ffffff",
         onPaper: "#111111",
@@ -84,6 +82,8 @@ export const theme = {
     media: {
         mobile: "@media screen and (max-width: 600px)",
         tablet: "@media screen and (max-width: 1024px)",
+        // 마우스가 있는 기기에서만 hover 효과를 준다(터치에서 눌린 채 남지 않게)
+        hover: "@media (hover: hover)",
     },
 };
 

@@ -15,7 +15,7 @@ export const MainHeader = styled.header`
     border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
     ${({ theme }) => theme.media.mobile} {
-        padding: 0 ${({ theme }) => theme.space.xl};
+        padding: 0 20px;
     }
 
     .logo {
@@ -30,7 +30,12 @@ export const MainHeader = styled.header`
         gap: 40px;
 
         ${({ theme }) => theme.media.mobile} {
-            gap: 20px;
+            gap: ${({ theme }) => theme.space.lg};
+
+            /* 좁은 화면에서는 로고가 맨 위로 가는 링크를 대신한다 */
+            .top {
+                display: none;
+            }
         }
 
         a {
@@ -40,8 +45,10 @@ export const MainHeader = styled.header`
             letter-spacing: 0.01em;
             transition: color ${({ theme }) => theme.transition.base};
 
-            &:hover {
-                color: ${({ theme }) => theme.colors.text};
+            ${({ theme }) => theme.media.hover} {
+                &:hover {
+                    color: ${({ theme }) => theme.colors.text};
+                }
             }
         }
     }
