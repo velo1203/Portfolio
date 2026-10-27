@@ -2,16 +2,114 @@
     "Techstack": [
         {
             "type": "Language",
-            "stack": ["Python", "Typescript", "Go", "Sql"]
+            "stack": [
+                "Python",
+                "Typescript",
+                "Go",
+                "Sql"
+            ]
         },
-        { "type": "Frontend", "stack": ["React", "Next", "Redux"] },
-        { "type": "Backend", "stack": ["Nest", "Flask/FastAPI"] },
-        { "type": "Tool", "stack": ["Swagger", "Figma", "Github"] }
+        {
+            "type": "Frontend",
+            "stack": [
+                "React",
+                "Next",
+                "Redux"
+            ]
+        },
+        {
+            "type": "Backend",
+            "stack": [
+                "Nest",
+                "Flask/FastAPI"
+            ]
+        },
+        {
+            "type": "Tool",
+            "stack": [
+                "Swagger",
+                "Figma",
+                "Github"
+            ]
+        }
     ],
     "Education": {
         "day": "2024~2027",
         "school": "Korea Digital Media High School"
     },
+    "Projects": [
+        {
+            "id": "bassi",
+            "name": "BASSI",
+            "kind": "개인 프로젝트",
+            "summary": "브라우저에서 하는 협동 좀비 디펜스 FPS",
+            "description": "자원을 모아 무기와 방어시설을 만들고 팀원과 함께 넥서스를 지키는 카툰풍 멀티플레이 게임입니다. 설치 없이 브라우저에서 바로 플레이하고, 데스크톱 앱도 있습니다.",
+            "stack": [
+                "TypeScript",
+                "Three.js",
+                "Go",
+                "Tauri"
+            ],
+            "image": "/projects/bassi.jpg",
+            "live": "https://bassi.gg"
+        },
+        {
+            "id": "handwrite",
+            "name": "handwrite",
+            "kind": "개인 프로젝트",
+            "summary": "수학 해설 LaTeX를 손글씨 이미지로 바꾸는 엔진과 API",
+            "description": "LaTeX로 조판한 해설에서 글자와 선의 좌표를 뽑아 손글씨로 다시 그립니다. 수식은 아이패드로 직접 쓴 글씨 샘플을 섞어 매번 다른 모양을 만듭니다.",
+            "stack": [
+                "Go",
+                "Python",
+                "LaTeX",
+                "Docker"
+            ],
+            "image": "/projects/handwrite.png",
+            "live": "https://handwrite.devho.net"
+        },
+        {
+            "id": "rebuildfit",
+            "name": "RebuildFit",
+            "kind": "외주",
+            "summary": "회복 중심 피트니스 브랜드 웹사이트",
+            "description": "운동을 포기했던 사람들을 위한 피트니스 브랜드의 웹사이트를 만들었습니다. 반복되는 UI를 컴포넌트로 정리하고 애니메이션 속도와 스타일을 한곳에서 관리하도록 리팩터링했습니다.",
+            "stack": [
+                "React",
+                "TypeScript",
+                "Tailwind",
+                "Framer Motion"
+            ],
+            "image": "/projects/rebuildfit.png",
+            "live": ""
+        },
+        {
+            "id": "tamgoomaker",
+            "name": "tamgoomaker",
+            "kind": "개인 프로젝트",
+            "summary": "직업탐구 실전 모의고사와 창작 문항을 만드는 도구",
+            "description": "EBS 교재 PDF에서 문항을 오려 문항 은행을 쌓고, 범위와 문항 수만 정하면 시험지와 정답지 PDF를 찍어 냅니다. 교재 개념과 기존 문항을 형태소 분석으로 맞대어 출제 공백을 찾고, 그 자리를 채우는 창작 문항을 만들어 공개했습니다.",
+            "stack": [
+                "Python",
+                "PyMuPDF",
+                "Claude API"
+            ],
+            "image": "/projects/tamgoomaker.png",
+            "live": ""
+        },
+        {
+            "id": "codingschool",
+            "name": "코딩스쿨",
+            "kind": "외주 · 2023",
+            "summary": "학생용 코딩 학습 플랫폼 프론트엔드 개발",
+            "description": "중학교 3학년 때 학생 코딩 학습 서비스 코딩스쿨의 화면을 React로 직접 개발했습니다. 보수를 받고 진행한 첫 실무 프로젝트입니다.",
+            "stack": [
+                "React"
+            ],
+            "image": "",
+            "live": ""
+        }
+    ],
     "Award": [
         {
             "day": "2025",

@@ -1,10 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrophy } from "@fortawesome/free-solid-svg-icons";
 import {
-    SiPython, SiTypescript, SiGo, SiMysql,
-    SiReact, SiNextdotjs, SiRedux,
-    SiNestjs, SiFlask, SiFastapi,
-    SiSwagger, SiFigma, SiGithub,
+    SiPython,
+    SiTypescript,
+    SiGo,
+    SiMysql,
+    SiReact,
+    SiNextdotjs,
+    SiRedux,
+    SiNestjs,
+    SiFlask,
+    SiFastapi,
+    SiSwagger,
+    SiFigma,
+    SiGithub,
+    SiDocker,
+    SiLatex,
+    SiThreedotjs,
+    SiTauri,
+    SiTailwindcss,
+    SiFramer,
+    SiAnthropic,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 import {
@@ -15,14 +31,22 @@ import {
     GithubButton,
     HeroActions,
     HeroEyebrow,
+    HeroGrid,
+    HeroLeft,
     HeroName,
     HeroSection,
+    LiveDot,
+    PreviewCard,
+    PreviewStack,
+    ProjectCard,
+    ProjectGrid,
     PageWrapper,
     Section,
     SectionLabel,
     SkillRow,
     SkillTable,
     Tag,
+    Thumb,
 } from "./styled.main";
 
 import config from "../../config/config.json";
@@ -41,6 +65,15 @@ const skillIconMap: Record<string, IconType> = {
     Swagger: SiSwagger,
     Figma: SiFigma,
     Github: SiGithub,
+    TypeScript: SiTypescript,
+    "Next.js": SiNextdotjs,
+    Docker: SiDocker,
+    LaTeX: SiLatex,
+    "Three.js": SiThreedotjs,
+    Tauri: SiTauri,
+    Tailwind: SiTailwindcss,
+    "Framer Motion": SiFramer,
+    "Claude API": SiAnthropic,
 };
 
 const fadeUp = {
@@ -57,35 +90,131 @@ const sectionAnim = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+type Project = (typeof config.Projects)[number];
+
+// 첫 화면 미리보기에는 앞의 세 프로젝트만 겹쳐 보여 준다
+const heroProjects = config.Projects.slice(0, 3);
+
+function ProjectThumb({ project }: { project: Project }) {
+    return (
+        <Thumb>
+            {project.image ? (
+                <img
+                    src={project.image}
+                    alt={`${project.name} 화면`}
+                    loading="lazy"
+                />
+            ) : (
+                <span className="placeholder">{project.name}</span>
+            )}
+        </Thumb>
+    );
+}
+
 export default function Main() {
     return (
         <PageWrapper>
             {/* ── HERO ──────────────────────────────────────────── */}
-            <HeroSection
-                id="about"
-                initial="hidden"
-                animate="visible"
-            >
-                <HeroEyebrow variants={fadeUp} custom={0}>
-                    Product Engineer · Developer
-                </HeroEyebrow>
-                <HeroName variants={fadeUp} custom={1}>
-                    심호성
-                </HeroName>
-                <HeroActions variants={fadeUp} custom={2}>
-                    <GithubButton
-                        onClick={() =>
-                            window.open("https://github.com/velo1203")
-                        }
-                    >
-                        GitHub →
-                    </GithubButton>
-                </HeroActions>
-                <EducationBadge variants={fadeUp} custom={3}>
-                    <span className="year">{config.Education.day}</span>
-                    {config.Education.school}
-                </EducationBadge>
+            <HeroSection id="about" initial="hidden" animate="visible">
+                <HeroGrid>
+                    <HeroLeft>
+                        <HeroEyebrow variants={fadeUp} custom={0}>
+                            Product Engineer · Developer
+                        </HeroEyebrow>
+                        <HeroName variants={fadeUp} custom={1}>
+                            심호성
+                        </HeroName>
+                        <HeroActions variants={fadeUp} custom={2}>
+                            <GithubButton
+                                onClick={() =>
+                                    window.open("https://github.com/velo1203")
+                                }
+                            >
+                                GitHub →
+                            </GithubButton>
+                        </HeroActions>
+                        <EducationBadge variants={fadeUp} custom={3}>
+                            <span className="year">{config.Education.day}</span>
+                            {config.Education.school}
+                        </EducationBadge>
+                    </HeroLeft>
+                    <PreviewStack variants={fadeUp} custom={4}>
+                        {heroProjects.map((p, i) => (
+                            <PreviewCard
+                                key={p.id}
+                                $index={i}
+                                href={`#project-${p.id}`}
+                            >
+                                <ProjectThumb project={p} />
+                                <span className="label">
+                                    {p.live && <LiveDot />}
+                                    {p.name}
+                                </span>
+                            </PreviewCard>
+                        ))}
+                    </PreviewStack>
+                </HeroGrid>
             </HeroSection>
+
+            {/* ── PROJECTS ─────────────────────────────────────── */}
+            <Section
+                id="projects"
+                variants={sectionAnim}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+            >
+                <SectionLabel>
+                    <h2>Projects</h2>
+                </SectionLabel>
+                <ProjectGrid>
+                    {config.Projects.map((p, i) => (
+                        <ProjectCard
+                            key={p.id}
+                            id={`project-${p.id}`}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            custom={i}
+                        >
+                            <ProjectThumb project={p} />
+                            <div className="body">
+                                <div className="meta">
+                                    <span>{p.kind}</span>
+                                    {p.live && <LiveDot>운영 중</LiveDot>}
+                                </div>
+                                <h3>{p.name}</h3>
+                                <p className="summary">{p.summary}</p>
+                                <p className="description">{p.description}</p>
+                                <div className="footer">
+                                    <div className="tags">
+                                        {p.stack.map((sk) => {
+                                            const Icon = skillIconMap[sk];
+                                            return (
+                                                <Tag key={sk}>
+                                                    {Icon && <Icon />}
+                                                    {sk}
+                                                </Tag>
+                                            );
+                                        })}
+                                    </div>
+                                    {p.live && (
+                                        <a
+                                            className="link"
+                                            href={p.live}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            사이트 보기 →
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </ProjectCard>
+                    ))}
+                </ProjectGrid>
+            </Section>
 
             {/* ── SKILLS ───────────────────────────────────────── */}
             <Section
@@ -159,9 +288,7 @@ export default function Main() {
             </Section>
 
             {/* ── FOOTER ───────────────────────────────────────── */}
-            <FooterBar>
-                © 2026 심호성 · Built with React + TypeScript
-            </FooterBar>
+            <FooterBar>© 2026 심호성 · Built with React + TypeScript</FooterBar>
         </PageWrapper>
     );
 }
