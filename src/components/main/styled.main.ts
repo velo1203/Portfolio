@@ -46,25 +46,8 @@ export const HeroName = styled(motion.h1)`
     font-weight: 700;
     line-height: 1.05;
     color: ${(props) => props.theme.colors.text};
-    margin-bottom: 10px;
+    margin-bottom: 44px;
     letter-spacing: -0.04em;
-`;
-
-export const HeroSub = styled(motion.h2)`
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
-    font-weight: 300;
-    color: ${(props) => props.theme.colors.textMuted};
-    margin-bottom: 36px;
-    letter-spacing: -0.02em;
-`;
-
-export const HeroDesc = styled(motion.p)`
-    font-size: 1.05rem;
-    color: ${(props) => props.theme.colors.textMuted};
-    line-height: 1.9;
-    max-width: 520px;
-    margin-bottom: 52px;
-    letter-spacing: -0.01em;
 `;
 
 export const HeroActions = styled(motion.div)`
@@ -79,11 +62,7 @@ export const GithubButton = styled.button`
     align-items: center;
     gap: 8px;
     padding: 12px 26px;
-    background: linear-gradient(
-        135deg,
-        ${(props) => props.theme.colors.gradientStart},
-        ${(props) => props.theme.colors.gradientEnd}
-    );
+    background: ${(props) => props.theme.colors.primary};
     color: #fff;
     border: none;
     border-radius: 980px;
@@ -105,6 +84,8 @@ export const GithubButton = styled.button`
 `;
 
 export const EducationBadge = styled(motion.div)`
+    align-self: flex-start;
+    margin-top: 20px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -211,42 +192,6 @@ export const Tag = styled.span`
     &:hover {
         background: rgba(123, 143, 247, 0.2);
         border-color: rgba(123, 143, 247, 0.4);
-    }
-`;
-
-// ── Timeline ──────────────────────────────────────────────────────────────────
-
-export const Timeline = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
-
-export const TimelineItem = styled(motion.div)`
-    display: flex;
-    gap: 32px;
-    padding: 22px 0;
-    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
-
-    &:first-child {
-        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
-    }
-
-    .year {
-        flex-shrink: 0;
-        width: 72px;
-        font-size: 0.8rem;
-        font-weight: 500;
-        color: ${(props) => props.theme.colors.primary};
-        padding-top: 2px;
-        letter-spacing: -0.01em;
-    }
-
-    .info .title {
-        font-size: 0.95rem;
-        font-weight: 400;
-        color: ${(props) => props.theme.colors.text};
-        line-height: 1.6;
-        letter-spacing: -0.01em;
     }
 `;
 

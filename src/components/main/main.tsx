@@ -14,19 +14,15 @@ import {
     FooterBar,
     GithubButton,
     HeroActions,
-    HeroDesc,
     HeroEyebrow,
     HeroName,
     HeroSection,
-    HeroSub,
     PageWrapper,
     Section,
     SectionLabel,
     SkillRow,
     SkillTable,
     Tag,
-    Timeline,
-    TimelineItem,
 } from "./styled.main";
 
 import config from "../../config/config.json";
@@ -76,14 +72,7 @@ export default function Main() {
                 <HeroName variants={fadeUp} custom={1}>
                     심호성
                 </HeroName>
-                <HeroSub variants={fadeUp} custom={2}>
-                    노력으로 발전하는 개발자
-                </HeroSub>
-                <HeroDesc variants={fadeUp} custom={3}>
-                    웹 프론트엔드부터 백엔드, 그리고 제품 설계까지 —<br />
-                    아이디어를 실제로 동작하는 제품으로 만드는 것을 좋아합니다.
-                </HeroDesc>
-                <HeroActions variants={fadeUp} custom={4}>
+                <HeroActions variants={fadeUp} custom={2}>
                     <GithubButton
                         onClick={() =>
                             window.open("https://github.com/velo1203")
@@ -91,11 +80,11 @@ export default function Main() {
                     >
                         GitHub →
                     </GithubButton>
-                    <EducationBadge>
-                        <span className="year">{config.Education.day}</span>
-                        {config.Education.school}
-                    </EducationBadge>
                 </HeroActions>
+                <EducationBadge variants={fadeUp} custom={3}>
+                    <span className="year">{config.Education.day}</span>
+                    {config.Education.school}
+                </EducationBadge>
             </HeroSection>
 
             {/* ── SKILLS ───────────────────────────────────────── */}
@@ -167,36 +156,6 @@ export default function Main() {
                         </AwardItem>
                     ))}
                 </AwardList>
-            </Section>
-
-            {/* ── EXPERIENCE ───────────────────────────────────── */}
-            <Section
-                id="experience"
-                variants={sectionAnim}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-            >
-                <SectionLabel>
-                    <h2>Experience</h2>
-                </SectionLabel>
-                <Timeline>
-                    {config.Experience.map((exp, i) => (
-                        <TimelineItem
-                            key={i}
-                            variants={fadeUp}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            custom={i}
-                        >
-                            <span className="year">{exp.day}</span>
-                            <div className="info">
-                                <p className="title">{exp.content}</p>
-                            </div>
-                        </TimelineItem>
-                    ))}
-                </Timeline>
             </Section>
 
             {/* ── FOOTER ───────────────────────────────────────── */}

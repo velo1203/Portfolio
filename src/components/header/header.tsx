@@ -10,7 +10,6 @@ export default function Header() {
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#awards">Awards</a>
-                <a href="#experience">Experience</a>
             </nav>
         </MainHeader>
     );
