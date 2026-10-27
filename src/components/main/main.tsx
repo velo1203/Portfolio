@@ -21,7 +21,11 @@ import {
     SiTailwindcss,
     SiFramer,
     SiAnthropic,
+    SiRust,
+    SiClaude,
+    SiOpenai,
 } from "react-icons/si";
+import { LuExternalLink } from "react-icons/lu";
 import type { IconType } from "react-icons";
 import {
     AwardItem,
@@ -44,6 +48,7 @@ import {
     Section,
     SectionLabel,
     SkillRow,
+    SiteButton,
     SkillTable,
     Tag,
     Thumb,
@@ -65,6 +70,9 @@ const skillIconMap: Record<string, IconType> = {
     Swagger: SiSwagger,
     Figma: SiFigma,
     Github: SiGithub,
+    Rust: SiRust,
+    Claude: SiClaude,
+    GPT: SiOpenai,
     TypeScript: SiTypescript,
     "Next.js": SiNextdotjs,
     Docker: SiDocker,
@@ -97,7 +105,7 @@ const heroProjects = config.Projects.slice(0, 3);
 
 function ProjectThumb({ project }: { project: Project }) {
     return (
-        <Thumb>
+        <Thumb $light={project.thumb?.theme === "light"}>
             {project.image ? (
                 <img
                     src={project.image}
@@ -105,7 +113,12 @@ function ProjectThumb({ project }: { project: Project }) {
                     loading="lazy"
                 />
             ) : (
-                <span className="placeholder">{project.name}</span>
+                <span className="placeholder">
+                    {project.thumb?.title ?? project.name}
+                    {project.thumb?.caption && (
+                        <small>{project.thumb.caption}</small>
+                    )}
+                </span>
             )}
         </Thumb>
     );
@@ -124,7 +137,11 @@ export default function Main() {
                         <HeroName variants={fadeUp} custom={1}>
                             심호성
                         </HeroName>
-                        <HeroActions variants={fadeUp} custom={2}>
+                        <EducationBadge variants={fadeUp} custom={2}>
+                            {config.Education.school}
+                            <span className="year">{config.Education.day}</span>
+                        </EducationBadge>
+                        <HeroActions variants={fadeUp} custom={3}>
                             <GithubButton
                                 onClick={() =>
                                     window.open("https://github.com/velo1203")
@@ -133,10 +150,6 @@ export default function Main() {
                                 GitHub →
                             </GithubButton>
                         </HeroActions>
-                        <EducationBadge variants={fadeUp} custom={3}>
-                            <span className="year">{config.Education.day}</span>
-                            {config.Education.school}
-                        </EducationBadge>
                     </HeroLeft>
                     <PreviewStack variants={fadeUp} custom={4}>
                         {heroProjects.map((p, i) => (
@@ -182,7 +195,6 @@ export default function Main() {
                             <div className="body">
                                 <div className="meta">
                                     <span>{p.kind}</span>
-                                    {p.live && <LiveDot>운영 중</LiveDot>}
                                 </div>
                                 <h3>{p.name}</h3>
                                 <p className="summary">{p.summary}</p>
@@ -200,14 +212,14 @@ export default function Main() {
                                         })}
                                     </div>
                                     {p.live && (
-                                        <a
-                                            className="link"
+                                        <SiteButton
                                             href={p.live}
                                             target="_blank"
                                             rel="noreferrer"
                                         >
-                                            사이트 보기 →
-                                        </a>
+                                            <LuExternalLink />
+                                            사이트 보기
+                                        </SiteButton>
                                     )}
                                 </div>
                             </div>

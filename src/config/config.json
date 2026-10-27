@@ -6,6 +6,7 @@
                 "Python",
                 "Typescript",
                 "Go",
+                "Rust",
                 "Sql"
             ]
         },
@@ -27,9 +28,10 @@
         {
             "type": "Tool",
             "stack": [
-                "Swagger",
                 "Figma",
-                "Github"
+                "Github",
+                "Claude",
+                "GPT"
             ]
         }
     ],
@@ -94,8 +96,13 @@
                 "PyMuPDF",
                 "Claude API"
             ],
-            "image": "/projects/tamgoomaker.png",
-            "live": ""
+            "image": "",
+            "live": "",
+            "thumb": {
+                "theme": "light",
+                "title": "직탐 실모",
+                "caption": "직업탐구 실전 모의고사"
+            }
         },
         {
             "id": "codingschool",

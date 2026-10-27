@@ -10,20 +10,18 @@ export const MainHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 0 60px;
-    height: 52px;
-    background: rgba(0, 0, 0, 0.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: ${({ theme }) => theme.layout.headerHeight};
+    background: ${({ theme }) => theme.colors.background};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 
-    ${(props) => props.theme.media.mobile} {
-        padding: 0 24px;
+    ${({ theme }) => theme.media.mobile} {
+        padding: 0 ${({ theme }) => theme.space.xl};
     }
 
     .logo {
         font-size: 1rem;
         font-weight: 600;
-        color: ${(props) => props.theme.colors.text};
+        color: ${({ theme }) => theme.colors.text};
         letter-spacing: -0.01em;
     }
 
@@ -31,19 +29,19 @@ export const MainHeader = styled.header`
         display: flex;
         gap: 40px;
 
-        ${(props) => props.theme.media.mobile} {
+        ${({ theme }) => theme.media.mobile} {
             gap: 20px;
         }
 
         a {
-            font-size: 0.78rem;
-            color: ${(props) => props.theme.colors.textMuted};
+            font-size: ${({ theme }) => theme.fontSize.sm};
+            font-weight: ${({ theme }) => theme.fontWeight.regular};
+            color: ${({ theme }) => theme.colors.textSecondary};
             letter-spacing: 0.01em;
-            transition: color 0.2s ease;
-            font-weight: 400;
+            transition: color ${({ theme }) => theme.transition.base};
 
             &:hover {
-                color: ${(props) => props.theme.colors.text};
+                color: ${({ theme }) => theme.colors.text};
             }
         }
     }
