@@ -1,81 +1,13 @@
 import { motion } from "framer-motion";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-    max-width: ${({ theme }) => theme.layout.maxWidth};
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 40px 160px;
 
-    ${({ theme }) => theme.media.mobile} {
-        padding: 0 20px 72px;
-    }
-`;
-
-// ── Shared ────────────────────────────────────────────────────────────────────
-
-// 줄 단위 목록(Skills, Awards)의 구분선
-const listRow = css`
-    padding: 22px 0;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-
-    &:first-child {
-        border-top: 1px solid ${({ theme }) => theme.colors.border};
-    }
-`;
-
-export const Section = styled(motion.section)`
-    margin-top: ${({ theme }) => theme.space.section};
-    scroll-margin-top: 80px;
-
-    ${({ theme }) => theme.media.mobile} {
-        margin-top: 88px;
-        scroll-margin-top: 68px;
-    }
-`;
-
-export const SectionLabel = styled.div`
-    margin-bottom: 36px;
-
-    h2 {
-        font-size: ${({ theme }) => theme.fontSize["2xl"]};
-        font-weight: ${({ theme }) => theme.fontWeight.bold};
-        color: ${({ theme }) => theme.colors.text};
-        letter-spacing: -0.03em;
-    }
-
-    ${({ theme }) => theme.media.mobile} {
-        margin-bottom: ${({ theme }) => theme.space.xl};
-
-        h2 {
-            font-size: 1.625rem;
-        }
-    }
-`;
-
-export const Tag = styled.span`
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 14px;
-    background: ${({ theme }) => theme.colors.accentSubtle};
-    color: ${({ theme }) => theme.colors.text};
-    border: 1px solid ${({ theme }) => theme.colors.accentBorder};
-    border-radius: ${({ theme }) => theme.radius.pill};
-    font-size: ${({ theme }) => theme.fontSize.sm};
-    font-weight: ${({ theme }) => theme.fontWeight.regular};
-    letter-spacing: -0.01em;
-    transition: border-color ${({ theme }) => theme.transition.base};
-
-    svg {
-        font-size: 0.95rem;
-        flex-shrink: 0;
-        color: ${({ theme }) => theme.colors.textSecondary};
-    }
-
-    ${({ theme }) => theme.media.hover} {
-        &:hover {
-            border-color: ${({ theme }) => theme.colors.accent};
-        }
+    ${(props) => props.theme.media.mobile} {
+        padding: 0 20px 100px;
     }
 `;
 
@@ -86,67 +18,36 @@ export const HeroSection = styled(motion.section)`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: ${({ theme }) => theme.layout.headerHeight};
+    padding-top: 52px;
+    position: relative;
 
-    ${({ theme }) => theme.media.mobile} {
-        min-height: auto;
-        padding-top: calc(${({ theme }) => theme.layout.headerHeight} + 72px);
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        left: -20%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(123, 110, 246, 0.14) 0%, rgba(77, 157, 224, 0.06) 60%, transparent 80%);
+        pointer-events: none;
     }
-`;
-
-export const HeroGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    align-items: center;
-    gap: ${({ theme }) => theme.space["3xl"]};
-
-    ${({ theme }) => theme.media.tablet} {
-        grid-template-columns: 1fr;
-        gap: ${({ theme }) => theme.space["4xl"]};
-    }
-`;
-
-export const HeroLeft = styled.div`
-    display: flex;
-    flex-direction: column;
 `;
 
 export const HeroEyebrow = styled(motion.p)`
-    font-size: ${({ theme }) => theme.fontSize.md};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    color: ${({ theme }) => theme.colors.accent};
+    font-size: 0.9rem;
     letter-spacing: 0.01em;
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 500;
     margin-bottom: 18px;
 `;
 
 export const HeroName = styled(motion.h1)`
-    font-size: ${({ theme }) => theme.fontSize.display};
-    font-weight: ${({ theme }) => theme.fontWeight.bold};
+    font-size: clamp(3rem, 7vw, 5.2rem);
+    font-weight: 700;
     line-height: 1.05;
-    color: ${({ theme }) => theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
+    margin-bottom: 44px;
     letter-spacing: -0.04em;
-    margin-bottom: 18px;
-`;
-
-export const EducationBadge = styled(motion.p)`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: ${({ theme }) => theme.space.xs} ${({ theme }) => theme.space.md};
-    margin-bottom: 40px;
-    font-size: ${({ theme }) => theme.fontSize.lg};
-
-    ${({ theme }) => theme.media.mobile} {
-        margin-bottom: 32px;
-        font-size: ${({ theme }) => theme.fontSize.md};
-    }
-    color: ${({ theme }) => theme.colors.textSecondary};
-    letter-spacing: -0.01em;
-
-    span.year {
-        font-size: ${({ theme }) => theme.fontSize.md};
-        color: ${({ theme }) => theme.colors.textTertiary};
-    }
 `;
 
 export const HeroActions = styled(motion.div)`
@@ -159,243 +60,64 @@ export const HeroActions = styled(motion.div)`
 export const GithubButton = styled.button`
     display: flex;
     align-items: center;
-    gap: ${({ theme }) => theme.space.sm};
+    gap: 8px;
     padding: 12px 26px;
-    background: ${({ theme }) => theme.colors.accent};
-    color: ${({ theme }) => theme.colors.onAccent};
+    background: ${(props) => props.theme.colors.primary};
+    color: #fff;
     border: none;
-    border-radius: ${({ theme }) => theme.radius.pill};
-    font-size: ${({ theme }) => theme.fontSize.md};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    letter-spacing: -0.01em;
+    border-radius: 980px;
+    font-size: 0.88rem;
+    font-weight: 500;
     cursor: pointer;
-    transition:
-        background ${({ theme }) => theme.transition.base},
-        transform ${({ theme }) => theme.transition.fast};
+    transition: filter 0.2s ease, transform 0.15s ease;
+    letter-spacing: -0.01em;
 
-    ${({ theme }) => theme.media.hover} {
-        &:hover {
-            background: ${({ theme }) => theme.colors.accentHover};
-            transform: translateY(-1px);
-        }
+    &:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
     }
 
     &:active {
         transform: translateY(0);
+        filter: brightness(0.95);
     }
 `;
 
-export const PreviewStack = styled(motion.div)`
-    position: relative;
-    height: 380px;
-
-    ${({ theme }) => theme.media.mobile} {
-        height: 250px;
-    }
-`;
-
-export const PreviewCard = styled.a<{ $index: number }>`
-    position: absolute;
-    width: 78%;
-    aspect-ratio: 16 / 10;
-    border-radius: ${({ theme }) => theme.radius.md};
-    overflow: hidden;
-    background: ${({ theme }) => theme.colors.surface};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    box-shadow: ${({ theme }) => theme.shadow.card};
-    top: ${(props) => props.$index * 52}px;
-    left: ${(props) => props.$index * 11}%;
-    z-index: ${(props) => 3 - props.$index};
-    transform: rotate(${(props) => (props.$index - 1) * 3}deg);
-    transition:
-        transform ${({ theme }) => theme.transition.slow},
-        top ${({ theme }) => theme.transition.slow},
-        border-color ${({ theme }) => theme.transition.base};
-
-    ${({ theme }) => theme.media.hover} {
-        ${PreviewStack}:hover & {
-            top: ${(props) => props.$index * 64}px;
-            transform: rotate(${(props) => (props.$index - 1) * 4}deg);
-        }
-
-        &:hover {
-            border-color: ${({ theme }) => theme.colors.accent};
-            z-index: 4;
-        }
-    }
-
-    ${({ theme }) => theme.media.mobile} {
-        width: 82%;
-        top: ${(props) => props.$index * 40}px;
-        left: ${(props) => props.$index * 9}%;
-        transform: rotate(${(props) => (props.$index - 1) * 2}deg);
-    }
-
-    .label {
-        position: absolute;
-        left: ${({ theme }) => theme.space.md};
-        bottom: ${({ theme }) => theme.space.md};
-        display: flex;
-        align-items: center;
-        gap: ${({ theme }) => theme.space.sm};
-        padding: 6px 12px;
-        border-radius: ${({ theme }) => theme.radius.pill};
-        background: ${({ theme }) => theme.colors.background};
-        border: 1px solid ${({ theme }) => theme.colors.border};
-        font-size: ${({ theme }) => theme.fontSize.sm};
-        color: ${({ theme }) => theme.colors.text};
-    }
-`;
-
-// ── Projects ──────────────────────────────────────────────────────────────────
-
-export const ProjectGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    ${({ theme }) => theme.media.mobile} {
-        grid-template-columns: 1fr;
-        gap: ${({ theme }) => theme.space.lg};
-    }
-`;
-
-export const ProjectCard = styled(motion.article)`
-    display: flex;
-    flex-direction: column;
-    border-radius: ${({ theme }) => theme.radius.lg};
-    overflow: hidden;
-    background: ${({ theme }) => theme.colors.surface};
-    border: 1px solid ${({ theme }) => theme.colors.border};
-    scroll-margin-top: 90px;
-    transition:
-        border-color ${({ theme }) => theme.transition.base},
-        transform ${({ theme }) => theme.transition.base};
-
-    ${({ theme }) => theme.media.hover} {
-        &:hover {
-            border-color: ${({ theme }) => theme.colors.borderStrong};
-            transform: translateY(-3px);
-        }
-    }
-
-    .body {
-        display: flex;
-        flex-direction: column;
-        gap: ${({ theme }) => theme.space.md};
-        padding: 22px ${({ theme }) => theme.space.xl} ${({ theme }) => theme.space.xl};
-        flex: 1;
-
-        ${({ theme }) => theme.media.mobile} {
-            padding: 18px 20px 20px;
-        }
-    }
-
-    .meta {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: ${({ theme }) => theme.fontSize.xs};
-        color: ${({ theme }) => theme.colors.textTertiary};
-    }
-
-    .titleRow {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: ${({ theme }) => theme.space.md};
-    }
-
-    h3 {
-        font-size: ${({ theme }) => theme.fontSize.xl};
-        font-weight: ${({ theme }) => theme.fontWeight.bold};
-        color: ${({ theme }) => theme.colors.text};
-        letter-spacing: -0.02em;
-    }
-
-    .summary {
-        font-size: ${({ theme }) => theme.fontSize.md};
-        color: ${({ theme }) => theme.colors.text};
-        letter-spacing: -0.01em;
-    }
-
-    .description {
-        font-size: ${({ theme }) => theme.fontSize.sm};
-        line-height: 1.7;
-        color: ${({ theme }) => theme.colors.textSecondary};
-        letter-spacing: -0.01em;
-    }
-
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-top: auto;
-        padding-top: ${({ theme }) => theme.space.sm};
-    }
-`;
-
-export const SiteButton = styled.a`
-    display: inline-flex;
-    align-items: center;
-    gap: ${({ theme }) => theme.space.sm};
-    flex-shrink: 0;
-    padding: 8px 16px;
-    background: ${({ theme }) => theme.colors.accent};
-    color: ${({ theme }) => theme.colors.onAccent};
-    border-radius: ${({ theme }) => theme.radius.pill};
-    font-size: ${({ theme }) => theme.fontSize.sm};
-    font-weight: ${({ theme }) => theme.fontWeight.medium};
-    transition: background ${({ theme }) => theme.transition.base};
-
-    svg {
-        font-size: 1rem;
-    }
-
-    ${({ theme }) => theme.media.hover} {
-        &:hover {
-            background: ${({ theme }) => theme.colors.accentHover};
-        }
-    }
-`;
-
-export const Thumb = styled.div<{ $light?: boolean }>`
-    position: relative;
-    aspect-ratio: 16 / 10;
-    width: 100%;
+export const EducationBadge = styled(motion.div)`
+    align-self: flex-start;
+    margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: ${({ theme, $light }) =>
-        $light ? theme.colors.paper : theme.colors.surfaceRaised};
-    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+    gap: 10px;
+    padding: 12px 22px;
+    background: ${(props) => props.theme.colors.surface};
+    border: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    border-radius: 980px;
+    font-size: 0.85rem;
+    color: ${(props) => props.theme.colors.textMuted};
+    backdrop-filter: blur(10px);
+    letter-spacing: -0.01em;
 
-    img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: left center;
+    span.year {
+        color: ${(props) => props.theme.colors.primary};
+        font-weight: 600;
     }
+`;
 
-    .placeholder {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: ${({ theme }) => theme.space.sm};
-        font-size: 1.6rem;
-        font-weight: ${({ theme }) => theme.fontWeight.bold};
+// ── Section shared ────────────────────────────────────────────────────────────
+
+export const Section = styled(motion.section)`
+    margin-top: 120px;
+`;
+
+export const SectionLabel = styled.div`
+    margin-bottom: 36px;
+
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: ${(props) => props.theme.colors.text};
         letter-spacing: -0.03em;
-        color: ${({ theme, $light }) =>
-            $light ? theme.colors.onPaper : theme.colors.text};
-
-        small {
-            font-size: ${({ theme }) => theme.fontSize.sm};
-            font-weight: ${({ theme }) => theme.fontWeight.regular};
-            letter-spacing: -0.01em;
-            color: ${({ theme }) => theme.colors.textTertiary};
-        }
     }
 `;
 
@@ -407,31 +129,69 @@ export const SkillTable = styled.div`
 `;
 
 export const SkillRow = styled(motion.div)`
-    ${listRow}
     display: flex;
     align-items: flex-start;
-    gap: ${({ theme }) => theme.space["2xl"]};
+    gap: 32px;
+    padding: 22px 0;
+    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
 
-    ${({ theme }) => theme.media.mobile} {
+    &:first-child {
+        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
+    }
+
+    ${(props) => props.theme.media.mobile} {
         flex-direction: column;
-        gap: ${({ theme }) => theme.space.md};
+        gap: 12px;
     }
 
     .category {
         flex-shrink: 0;
         width: 96px;
-        padding-top: ${({ theme }) => theme.space.xs};
-        font-size: ${({ theme }) => theme.fontSize.xs};
-        font-weight: ${({ theme }) => theme.fontWeight.medium};
+        font-size: 0.78rem;
+        font-weight: 600;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: ${({ theme }) => theme.colors.accent};
+        background: linear-gradient(
+            135deg,
+            ${(props) => props.theme.colors.gradientStart},
+            ${(props) => props.theme.colors.gradientEnd}
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding-top: 4px;
     }
 
     .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: ${({ theme }) => theme.space.sm};
+        gap: 8px;
+    }
+`;
+
+export const Tag = styled.span`
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: rgba(123, 143, 247, 0.1);
+    color: ${(props) => props.theme.colors.text};
+    border-radius: 980px;
+    font-size: 0.83rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(123, 143, 247, 0.2);
+    transition: background 0.2s ease, border-color 0.2s ease;
+
+    svg {
+        font-size: 0.95rem;
+        opacity: 0.85;
+        flex-shrink: 0;
+    }
+
+    &:hover {
+        background: rgba(123, 143, 247, 0.2);
+        border-color: rgba(123, 143, 247, 0.4);
     }
 `;
 
@@ -443,60 +203,56 @@ export const AwardList = styled.div`
 `;
 
 export const AwardItem = styled(motion.div)`
-    ${listRow}
     display: flex;
     align-items: center;
-    gap: ${({ theme }) => theme.space.xl};
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid ${(props) => props.theme.colors.surfaceBorder};
 
-    ${({ theme }) => theme.media.mobile} {
-        gap: ${({ theme }) => theme.space.lg};
+    &:first-child {
+        border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
     }
 
     .medal {
         width: 40px;
         height: 40px;
+        background: ${(props) => props.theme.colors.primaryGlow};
+        border: 1px solid rgba(41, 151, 255, 0.25);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
-        background: ${({ theme }) => theme.colors.accentSubtle};
-        border: 1px solid ${({ theme }) => theme.colors.accentBorder};
-        border-radius: ${({ theme }) => theme.radius.md};
-        color: ${({ theme }) => theme.colors.accent};
+        color: ${(props) => props.theme.colors.primary};
         font-size: 1rem;
     }
 
     .content {
         .year {
-            font-size: ${({ theme }) => theme.fontSize.xs};
-            font-weight: ${({ theme }) => theme.fontWeight.medium};
-            color: ${({ theme }) => theme.colors.accent};
+            font-size: 0.75rem;
+            color: ${(props) => props.theme.colors.primary};
+            font-weight: 500;
+            margin-bottom: 4px;
             letter-spacing: 0.02em;
-            margin-bottom: ${({ theme }) => theme.space.xs};
         }
-
         .title {
-            font-size: ${({ theme }) => theme.fontSize.md};
+            font-size: 0.95rem;
+            color: ${(props) => props.theme.colors.text};
+            font-weight: 400;
             line-height: 1.5;
-            color: ${({ theme }) => theme.colors.text};
             letter-spacing: -0.01em;
         }
     }
 `;
 
-// ── Footer ────────────────────────────────────────────────────────────────────
+// ── Divider ───────────────────────────────────────────────────────────────────
 
 export const FooterBar = styled.footer`
     margin-top: 140px;
     padding-top: 28px;
-
-    ${({ theme }) => theme.media.mobile} {
-        margin-top: 96px;
-    }
-
-    border-top: 1px solid ${({ theme }) => theme.colors.border};
+    border-top: 1px solid ${(props) => props.theme.colors.surfaceBorder};
     text-align: center;
-    font-size: ${({ theme }) => theme.fontSize.xs};
-    color: ${({ theme }) => theme.colors.textTertiary};
+    font-size: 0.78rem;
+    color: ${(props) => props.theme.colors.textMuted};
     letter-spacing: -0.01em;
 `;
