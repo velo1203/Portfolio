@@ -83,27 +83,6 @@ export const GithubButton = styled.button`
     }
 `;
 
-export const EducationBadge = styled(motion.div)`
-    align-self: flex-start;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 22px;
-    background: ${(props) => props.theme.colors.surface};
-    border: 1px solid ${(props) => props.theme.colors.surfaceBorder};
-    border-radius: 980px;
-    font-size: 0.85rem;
-    color: ${(props) => props.theme.colors.textMuted};
-    backdrop-filter: blur(10px);
-    letter-spacing: -0.01em;
-
-    span.year {
-        color: ${(props) => props.theme.colors.primary};
-        font-weight: 600;
-    }
-`;
-
 // ── Section shared ────────────────────────────────────────────────────────────
 
 export const Section = styled(motion.section)`

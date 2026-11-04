@@ -10,7 +10,6 @@ import type { IconType } from "react-icons";
 import {
     AwardItem,
     AwardList,
-    EducationBadge,
     FooterBar,
     GithubButton,
     HeroActions,
@@ -81,10 +80,6 @@ export default function Main() {
                         GitHub →
                     </GithubButton>
                 </HeroActions>
-                <EducationBadge variants={fadeUp} custom={3}>
-                    <span className="year">{config.Education.day}</span>
-                    {config.Education.school}
-                </EducationBadge>
             </HeroSection>
 
             {/* ── SKILLS ───────────────────────────────────────── */}

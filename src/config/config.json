@@ -8,10 +8,6 @@
         { "type": "Backend", "stack": ["Nest", "Flask/FastAPI"] },
         { "type": "Tool", "stack": ["Swagger", "Figma", "Github"] }
     ],
-    "Education": {
-        "day": "2024~2027",
-        "school": "Korea Digital Media High School"
-    },
     "Award": [
         {
             "day": "2025",
