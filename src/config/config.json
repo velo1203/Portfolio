@@ -2,7 +2,7 @@
     "Techstack": [
         {
             "type": "Language",
-            "stack": ["Python", "Typescript", "Go", "Sql"]
+            "stack": ["Python", "Typescript", "Go", "Rust", "Sql"]
         },
         { "type": "Frontend", "stack": ["React", "Next", "Redux"] },
         { "type": "Backend", "stack": ["Nest", "Flask/FastAPI"] },
