@@ -71,21 +71,6 @@ export default function Main() {
                         <GridBox>
                             <div className="gridhead">
                                 <span></span>
-                                <h1>Exprience</h1>
-                            </div>
-
-                            <GridUl>
-                                {config.Experience.map((exp) => (
-                                    <li className="gridli">
-                                        <h1>{exp.day}</h1>
-                                        <p>{exp.content}</p>
-                                    </li>
-                                ))}
-                            </GridUl>
-                        </GridBox>
-                        <GridBox>
-                            <div className="gridhead">
-                                <span></span>
                                 <h1>Award</h1>
                             </div>
 
