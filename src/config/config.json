@@ -3,11 +3,80 @@
     "Techstack": [
         {
             "type": "Language",
-            "stack": ["Python", "TypeScript", "Go", "Rust", "SQL"]
+            "stack": [
+                {
+                    "name": "Python",
+                    "icon": "python"
+                },
+                {
+                    "name": "TypeScript",
+                    "icon": "typescript"
+                },
+                {
+                    "name": "Go",
+                    "icon": "go"
+                },
+                {
+                    "name": "Rust",
+                    "icon": "rust"
+                },
+                {
+                    "name": "SQL",
+                    "icon": "sql"
+                }
+            ]
         },
-        { "type": "Frontend", "stack": ["React", "Next.js", "Redux"] },
-        { "type": "Backend", "stack": ["NestJS", "Flask/FastAPI"] },
-        { "type": "Tool", "stack": ["Swagger", "Figma", "GitHub"] }
+        {
+            "type": "Frontend",
+            "stack": [
+                {
+                    "name": "React",
+                    "icon": "react"
+                },
+                {
+                    "name": "Next.js",
+                    "icon": "nextjs"
+                },
+                {
+                    "name": "Redux",
+                    "icon": "redux"
+                }
+            ]
+        },
+        {
+            "type": "Backend",
+            "stack": [
+                {
+                    "name": "NestJS",
+                    "icon": "nestjs"
+                },
+                {
+                    "name": "Flask",
+                    "icon": "flask"
+                },
+                {
+                    "name": "FastAPI",
+                    "icon": "fastapi"
+                }
+            ]
+        },
+        {
+            "type": "Tool",
+            "stack": [
+                {
+                    "name": "Swagger",
+                    "icon": "swagger"
+                },
+                {
+                    "name": "Figma",
+                    "icon": "figma"
+                },
+                {
+                    "name": "GitHub",
+                    "icon": "github"
+                }
+            ]
+        }
     ],
     "Award": [
         {

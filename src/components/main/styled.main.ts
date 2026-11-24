@@ -22,7 +22,7 @@ export const Container = styled(motion.main).attrs(() => ({
 }))`
     max-width: 1040px;
     margin: 0 auto;
-    padding: 40px 0 30px;
+    padding: 40px 0 20px;
 
     ${(props) => props.theme.media.mobile} {
         padding: 15px 0 30px;
@@ -173,9 +173,9 @@ export const Rows = styled.ul`
     gap: 10px;
 `;
 
-export const Row = styled.li`
+export const Row = styled.li<{ $center?: boolean }>`
     display: flex;
-    align-items: baseline;
+    align-items: ${(props) => (props.$center ? "center" : "baseline")};
     gap: 12px;
     font-size: ${(props) => props.theme.fontsize.small};
     font-weight: 500;
@@ -210,10 +210,18 @@ export const Tags = styled.div`
     gap: 6px;
 `;
 
-export const SkillTag = styled.span`
-    padding: 5px 10px;
-    font-weight: 400;
+export const SkillIcon = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     border: 1.5px solid ${(props) => lighten(0.3, props.theme.colors.primary)};
-    color: ${(props) => lighten(0.2, props.theme.colors.text)};
     border-radius: 7px;
+
+    img {
+        display: block;
+        width: 24px;
+        height: 24px;
+    }
 `;

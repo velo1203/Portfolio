@@ -9,7 +9,7 @@ import {
     Row,
     Rows,
     Section,
-    SkillTag,
+    SkillIcon,
     Tags,
 } from "./styled.main";
 
@@ -53,11 +53,19 @@ export default function Main() {
                         </div>
                         <Rows>
                             {config.Techstack.map((Ts) => (
-                                <Row key={Ts.type}>
+                                <Row key={Ts.type} $center>
                                     <span className="label">{Ts.type}</span>
                                     <Tags>
                                         {Ts.stack.map((sk) => (
-                                            <SkillTag key={sk}>{sk}</SkillTag>
+                                            <SkillIcon
+                                                key={sk.name}
+                                                title={sk.name}
+                                            >
+                                                <img
+                                                    src={`icon/tech/${sk.icon}.svg`}
+                                                    alt={sk.name}
+                                                />
+                                            </SkillIcon>
                                         ))}
                                     </Tags>
                                 </Row>
