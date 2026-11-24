@@ -1,14 +1,16 @@
 import {
+    Aside,
     Container,
-    ContainerGrid,
-    ContentSubContainer,
-    GridBox,
-    GridUl,
+    Content,
+    Greeting,
     HeadSpan,
-    ImageSubContainer,
     MainContent,
-    MainHeader,
+    PageTitle,
+    Row,
+    Rows,
+    Section,
     SkillTag,
+    Tags,
 } from "./styled.main";
 
 import config from "../../config/config.json";
@@ -16,75 +18,81 @@ import config from "../../config/config.json";
 export default function Main() {
     return (
         <Container>
-            <MainHeader>
+            <PageTitle>
                 <span></span>
-                <h1>PROFILE</h1>
-            </MainHeader>
+                <p>PROFILE</p>
+            </PageTitle>
             <MainContent>
-                <ImageSubContainer>
-                    <img src="image/profile.png" alt="profile" />
+                <Aside>
                     <img
-                        src="icon/github.png"
-                        alt="github"
-                        className="icon"
-                        onClick={() => {
-                            window.open("https://github.com/velo1203");
-                        }}
+                        src="image/profile.png"
+                        alt="심호성 프로필 사진"
+                        className="profile"
+                        width={354}
+                        height={472}
                     />
-                </ImageSubContainer>
-                <ContentSubContainer>
-                    <div className="content-head">
-                        <h1>
-                            안녕하세요 <HeadSpan name>심호성</HeadSpan>입니다
-                        </h1>
-                    </div>
-                    <ContainerGrid>
-                        <GridBox>
-                            <div className="gridhead">
-                                <span></span>
-                                <h1>TECH STACK</h1>
-                            </div>
-                            <GridUl>
-                                {config.Techstack.map((Ts) => (
-                                    <li className="gridli">
-                                        <h1>{Ts.type}</h1>
+                    <a
+                        href={config.Github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                    >
+                        <img src="icon/github.png" alt="" />
+                    </a>
+                </Aside>
+                <Content>
+                    <Greeting>
+                        안녕하세요
+                        <br />
+                        개발을 즐겨하는 학생 <HeadSpan>심호성</HeadSpan>입니다
+                    </Greeting>
+                    <Section>
+                        <div className="head">
+                            <span></span>
+                            <h2>TECH STACK</h2>
+                        </div>
+                        <Rows>
+                            {config.Techstack.map((Ts) => (
+                                <Row key={Ts.type}>
+                                    <span className="label">{Ts.type}</span>
+                                    <Tags>
                                         {Ts.stack.map((sk) => (
-                                            <SkillTag>{sk}</SkillTag>
+                                            <SkillTag key={sk}>{sk}</SkillTag>
                                         ))}
-                                    </li>
-                                ))}
-                            </GridUl>
-                        </GridBox>
-                        <GridBox>
-                            <div className="gridhead">
-                                <span></span>
-                                <h1>EDUCATION</h1>
-                            </div>
-
-                            <GridUl>
-                                <li className="gridli">
-                                    <h1>{config.Education.day}</h1>
-                                    <p>{config.Education.school}</p>
-                                </li>
-                            </GridUl>
-                        </GridBox>
-                        <GridBox>
-                            <div className="gridhead">
-                                <span></span>
-                                <h1>Award</h1>
-                            </div>
-
-                            <GridUl>
-                                {config.Award.map((awd) => (
-                                    <li className="gridli">
-                                        <h1>{awd.day}</h1>
-                                        <p>{awd.content}</p>
-                                    </li>
-                                ))}
-                            </GridUl>
-                        </GridBox>
-                    </ContainerGrid>
-                </ContentSubContainer>
+                                    </Tags>
+                                </Row>
+                            ))}
+                        </Rows>
+                    </Section>
+                    <Section>
+                        <div className="head">
+                            <span></span>
+                            <h2>AWARD</h2>
+                        </div>
+                        <Rows>
+                            {config.Award.map((awd) => (
+                                <Row key={awd.content}>
+                                    <span className="label">{awd.day}</span>
+                                    <p>{awd.content}</p>
+                                </Row>
+                            ))}
+                        </Rows>
+                    </Section>
+                    <Section>
+                        <div className="head">
+                            <span></span>
+                            <h2>EDUCATION</h2>
+                        </div>
+                        <Rows>
+                            <Row>
+                                <span className="label">
+                                    {config.Education.day}
+                                </span>
+                                <p>{config.Education.school}</p>
+                            </Row>
+                        </Rows>
+                    </Section>
+                </Content>
             </MainContent>
         </Container>
     );

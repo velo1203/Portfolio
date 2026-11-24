@@ -1,17 +1,14 @@
 {
+    "Github": "https://github.com/velo1203",
     "Techstack": [
         {
             "type": "Language",
-            "stack": ["Python", "Typescript", "Go", "Rust", "Sql"]
+            "stack": ["Python", "TypeScript", "Go", "Rust", "SQL"]
         },
-        { "type": "Frontend", "stack": ["React", "Next", "Redux"] },
-        { "type": "Backend", "stack": ["Nest", "Flask/FastAPI"] },
-        { "type": "Tool", "stack": ["Swagger", "Figma", "Github"] }
+        { "type": "Frontend", "stack": ["React", "Next.js", "Redux"] },
+        { "type": "Backend", "stack": ["NestJS", "Flask/FastAPI"] },
+        { "type": "Tool", "stack": ["Swagger", "Figma", "GitHub"] }
     ],
-    "Education": {
-        "day": "2024~2027",
-        "school": "Korea Digital Media High School"
-    },
     "Award": [
         {
             "day": "2025",
@@ -29,5 +26,9 @@
             "day": "2024",
             "content": "한양대학교 에리카 고교 CID 동상"
         }
-    ]
+    ],
+    "Education": {
+        "day": "2024–2027",
+        "school": "Korea Digital Media High School"
+    }
 }

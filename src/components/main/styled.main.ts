@@ -6,33 +6,30 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.2 },
+        transition: { staggerChildren: 0.08 },
     },
 };
 
 const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
-export const Container = styled(motion.div).attrs(() => ({
+export const Container = styled(motion.main).attrs(() => ({
     initial: "hidden",
     animate: "visible",
     variants: containerVariants,
 }))`
-    width: 80%;
+    max-width: 1040px;
     margin: 0 auto;
-    padding-top: 50px;
+    padding: 40px 0 30px;
 
     ${(props) => props.theme.media.mobile} {
-        width: 100%;
-        padding-top: 30px;
+        padding: 15px 0 30px;
     }
 `;
 
-export const MainHeader = styled(motion.header).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
+export const PageTitle = styled(motion.header).attrs(() => ({
     variants: itemVariants,
 }))`
     span {
@@ -41,213 +38,182 @@ export const MainHeader = styled(motion.header).attrs(() => ({
         height: 10px;
         background-color: ${(props) => props.theme.colors.primary};
     }
-    h1 {
-        font-size: ${(props) => props.theme.mobileFontSize.large};
+    p {
+        font-size: ${(props) => props.theme.fontsize.large};
+        font-weight: 700;
         color: ${(props) => props.theme.colors.text};
 
-        ${(props) => props.theme.media.tablet} {
-            font-size: ${(props) => props.theme.mobileFontSize.large};
-        }
-
         ${(props) => props.theme.media.mobile} {
-            font-size: ${(props) => props.theme.mobileFontSize.medium};
+            font-size: ${(props) => props.theme.fontsize.medium};
         }
     }
 `;
 
 export const MainContent = styled.div`
     display: flex;
-    justify-content: space-between;
-    gap: 50px;
+    align-items: flex-start;
+    gap: 90px;
+    margin-top: 48px;
 
     ${(props) => props.theme.media.tablet} {
         flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        gap: 36px;
+        margin-top: 36px;
     }
 `;
-export const ImageSubContainer = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
+
+export const Aside = styled(motion.div).attrs(() => ({
     variants: itemVariants,
 }))`
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 22px;
+    flex-shrink: 0;
 
-    img {
+    ${(props) => props.theme.media.tablet} {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .profile {
+        display: block;
         width: 240px;
-        margin-top: 100px;
+        height: auto;
         border-radius: 5px;
 
         ${(props) => props.theme.media.tablet} {
-            width: 250px;
-            margin-top: 70px;
+            width: 180px;
+        }
+
+        ${(props) => props.theme.media.mobile} {
+            width: 150px;
         }
     }
 
-    .icon {
-        width: 30px;
-        margin-top: 25px;
-        cursor: pointer;
+    a {
+        display: block;
+        padding: 4px;
+        border-radius: 50%;
         transition: transform 0.2s ease;
 
         &:hover {
             transform: scale(1.1);
         }
 
-        ${(props) => props.theme.media.tablet} {
-            width: 25px;
-            margin-top: 20px;
+        &:focus-visible {
+            outline: 2px solid ${(props) => props.theme.colors.primary};
+            outline-offset: 2px;
         }
 
-        ${(props) => props.theme.media.mobile} {
-            width: 20px;
-            margin-top: 15px;
+        img {
+            display: block;
+            width: 30px;
+            height: 30px;
         }
     }
 `;
 
-export const ContentSubContainer = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
+export const Content = styled.div`
     flex: 1;
-    padding: 25px;
-    margin-left: 50px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 38px;
 
     ${(props) => props.theme.media.tablet} {
         width: 100%;
-        min-width: 0;
-        margin-left: 0;
-        text-align: center;
-        align-items: center;
-        padding: 0;
-    }
-
-    .content-head {
-        h1 {
-            font-weight: 300;
-            font-size: ${(props) => props.theme.mobileFontSize.large};
-
-            ${(props) => props.theme.media.mobile} {
-                font-size: ${(props) => props.theme.mobileFontSize.medium};
-            }
-        }
+        gap: 36px;
     }
 `;
 
-export const HeadSpan = styled.span<{ name?: boolean }>`
-    font-weight: 700;
-    color: ${(props) =>
-        props.name ? props.theme.colors.primary : props.theme.colors.text};
-`;
-
-export const ContainerGrid = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: containerVariants,
-}))`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-
-    ${(props) => props.theme.media.tablet} {
-        width: 100%;
-        grid-template-columns: minmax(0, 1fr);
-    }
-`;
-
-export const GridBox = styled(motion.div).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
+export const Greeting = styled(motion.h1).attrs(() => ({
     variants: itemVariants,
 }))`
-    padding: 20px;
-    border-radius: 10px;
-    ${(props) => props.theme.media.tablet} {
-        min-height: 300px;
-        padding: 0px;
+    font-weight: 300;
+    font-size: ${(props) => props.theme.fontsize.large};
+    line-height: 1.45;
+
+    ${(props) => props.theme.media.mobile} {
+        font-size: ${(props) => props.theme.fontsize.medium};
     }
-    .gridhead {
+`;
+
+export const HeadSpan = styled.span`
+    font-weight: 700;
+    color: ${(props) => props.theme.colors.primary};
+`;
+
+export const Section = styled(motion.section).attrs(() => ({
+    variants: itemVariants,
+}))`
+    .head {
         span {
             display: block;
             width: 20px;
             height: 8px;
             background-color: ${(props) => props.theme.colors.primary};
         }
-        h1 {
-            font-size: ${(props) => props.theme.mobileFontSize.medium};
+        h2 {
+            font-size: ${(props) => props.theme.fontsize.medium};
+            font-weight: 700;
             color: ${(props) => props.theme.colors.text};
 
             ${(props) => props.theme.media.mobile} {
-                font-size: ${(props) => props.theme.mobileFontSize.small};
+                font-size: ${(props) => props.theme.fontsize.small};
             }
         }
     }
 `;
 
-export const GridUl = styled.ul`
+export const Rows = styled.ul`
     margin-top: 15px;
-    list-style: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
+`;
 
-    .gridli {
-        display: flex;
-        align-items: center;
+export const Row = styled.li`
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: ${(props) => props.theme.fontsize.small};
+    font-weight: 500;
+    line-height: 1.5;
 
-        gap: 5px;
-        ${(props) => props.theme.media.tablet} {
-            flex-wrap: wrap;
-        }
+    ${(props) => props.theme.media.mobile} {
+        gap: 8px;
+    }
+
+    /* one label column shared by every section, so rows line up */
+    .label {
+        flex: 0 0 92px;
+        white-space: nowrap;
+        color: ${(props) => props.theme.colors.secondary};
+
         ${(props) => props.theme.media.mobile} {
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
+            flex-basis: 84px;
         }
-
-        h1 {
-            font-size: ${(props) => props.theme.mobileFontSize.small};
-            color: ${(props) => props.theme.colors.secondary};
-            font-weight: 500;
-            margin-right: 4px;
-        }
-        p {
-            flex: 1 1 0;
-            min-width: 0;
-            text-align: left;
-            font-size: ${(props) => props.theme.mobileFontSize.small};
-            font-weight: 500;
-            color: ${(props) => props.theme.colors.text};
-        }
-        .grade {
-            width: 25px;
-            height: 25px;
-        }
+    }
+    p {
+        flex: 1;
+        min-width: 0;
+        color: ${(props) => props.theme.colors.text};
     }
 `;
 
-export const SkillTag = styled(motion.span).attrs(() => ({
-    initial: "hidden",
-    animate: "visible",
-    variants: itemVariants,
-}))`
-    display: inline-block;
+export const Tags = styled.div`
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+`;
+
+export const SkillTag = styled.span`
     padding: 5px 10px;
+    font-weight: 400;
     border: 1.5px solid ${(props) => lighten(0.3, props.theme.colors.primary)};
     color: ${(props) => lighten(0.2, props.theme.colors.text)};
     border-radius: 7px;
-    transition: background-color 0.15s ease, transform 0.2s ease;
-
-    &:hover {
-        background-color: ${(props) =>
-            lighten(0.4, props.theme.colors.primary)};
-        transform: scale(1.1);
-    }
 `;

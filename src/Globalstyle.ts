@@ -13,11 +13,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
 
     padding: 25px;
+    color: ${(props) => props.theme.colors.text};
     background-color: ${(props) => props.theme.colors.background};
-    ${(props) => props.theme.media.mobile} {
-        width: 100%;
-        padding-top: 30px;
-    }
+    word-break: keep-all;
   }
 
 `;
