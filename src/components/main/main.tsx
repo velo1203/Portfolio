@@ -59,13 +59,11 @@ export default function Main() {
                                         {Ts.stack.map((sk) => (
                                             <SkillIcon
                                                 key={sk.name}
+                                                role="img"
+                                                aria-label={sk.name}
                                                 title={sk.name}
-                                            >
-                                                <img
-                                                    src={`icon/tech/${sk.icon}.svg`}
-                                                    alt={sk.name}
-                                                />
-                                            </SkillIcon>
+                                                $src={`icon/tech/${sk.icon}.svg`}
+                                            />
                                         ))}
                                     </Tags>
                                 </Row>

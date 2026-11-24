@@ -207,21 +207,14 @@ export const Tags = styled.div`
     min-width: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 10px 18px;
 `;
 
-export const SkillIcon = styled.span`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 1.5px solid ${(props) => lighten(0.3, props.theme.colors.primary)};
-    border-radius: 7px;
-
-    img {
-        display: block;
-        width: 24px;
-        height: 24px;
-    }
+/* drawn as a mask so every logo takes the same color */
+export const SkillIcon = styled.span<{ $src: string }>`
+    width: 28px;
+    height: 28px;
+    background-color: ${(props) => lighten(0.2, props.theme.colors.text)};
+    mask: url(${(props) => props.$src}) center / contain no-repeat;
+    -webkit-mask: url(${(props) => props.$src}) center / contain no-repeat;
 `;
