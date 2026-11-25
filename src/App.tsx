@@ -1,17 +1,20 @@
-import { MotionConfig } from "framer-motion";
-import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./Globalstyle";
-import { theme } from "./theme";
-import Main from "./components/main/main";
+import About from "./components/about/about";
+import Hero from "./components/hero/hero";
+import Nav from "./components/nav/nav";
+import Projects from "./components/projects/projects";
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
+        <>
             <GlobalStyle />
-            <MotionConfig reducedMotion="user">
-                <Main />
-            </MotionConfig>
-        </ThemeProvider>
+            <Nav />
+            <main>
+                <Hero />
+                <Projects />
+                <About />
+            </main>
+        </>
     );
 }
 

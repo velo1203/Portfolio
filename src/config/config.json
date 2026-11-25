@@ -1,5 +1,79 @@
 {
+    "Name": "심호성",
+    "Intro": [
+        "만들고 싶은 것을 끝까지 만들어 내놓는 고등학생 개발자입니다.",
+        "방치형 게임 드릴 키우기와 픽셀아트 도구 dotforge를 만들어 운영하고 있습니다."
+    ],
     "Github": "https://github.com/velo1203",
+    "Email": "hokitoki1203@gmail.com",
+    "Projects": [
+        {
+            "id": "drill",
+            "name": "드릴 키우기",
+            "summary": "지구를 뚫는 방치형 게임",
+            "description": "눌러서 파고, 엔진을 달면 페이지를 닫아도 계속 팝니다. 지구 반대편까지 12,742km를 뚫고 나가 태양계와 은하 중심까지 이어지고, 끝 대신 누가 더 멀리 갔는지 겨루는 랭킹이 있습니다.",
+            "stack": ["Go", "React", "TypeScript", "PostgreSQL"],
+            "image": "projects/drill.webp",
+            "icon": "projects/icon/drill.png",
+            "url": "https://growdrill.app",
+            "host": "growdrill.app"
+        },
+        {
+            "id": "dotforge",
+            "name": "dotforge",
+            "summary": "말 한 줄로 만드는 픽셀아트",
+            "description": "게임용 픽셀아트를 이미지 모델이 아니라 언어 모델이 글로 씁니다. 한 글자가 한 픽셀이고, 규칙 검사를 통과한 그림만 화면에 나옵니다. 드릴 키우기의 그림 250개를 그린 방식을 서비스로 옮겼습니다.",
+            "stack": ["TypeScript", "React", "Claude API", "SQLite"],
+            "image": "projects/dotforge.webp",
+            "icon": "projects/icon/dotforge.png",
+            "url": "https://dotforge.app",
+            "host": "dotforge.app"
+        },
+        {
+            "id": "bassi",
+            "name": "빠시 BASSI",
+            "summary": "협동 좀비 디펜스 FPS",
+            "description": "자원을 모아 무기와 방어시설을 만들고 친구들과 함께 넥서스를 지키는 카툰풍 멀티플레이 게임입니다. 설치 없이 브라우저에서 바로 플레이하고, 데스크톱 앱도 있습니다.",
+            "stack": ["TypeScript", "Three.js", "Go", "Tauri"],
+            "image": "projects/bassi.webp",
+            "icon": "projects/icon/bassi.svg",
+            "url": "https://bassi.gg",
+            "host": "bassi.gg"
+        },
+        {
+            "id": "handwrite",
+            "name": "handwrite",
+            "summary": "LaTeX 해설을 손글씨로",
+            "description": "LaTeX로 조판한 수학 해설에서 글자와 선의 좌표를 뽑아 손글씨로 다시 그리는 엔진과 API입니다. 수식은 아이패드로 직접 쓴 글씨 샘플을 섞어 매번 다른 모양을 만듭니다.",
+            "stack": ["Go", "Python", "LaTeX", "Docker"],
+            "image": "projects/handwrite.webp",
+            "icon": "projects/icon/handwrite.svg",
+            "url": "https://handwrite.devho.net",
+            "host": "handwrite.devho.net"
+        },
+        {
+            "id": "dokhae",
+            "name": "독해 배틀",
+            "summary": "1:1 비문학 독해 대결",
+            "description": "두 사람이 같은 비문학 지문과 오지선다 문제를 받고, 먼저 맞힌 사람이 라운드를 가져갑니다. 한 라운드에 기회는 한 번이라 찍으면 탈락하고, 3판 2선승으로 승부가 납니다.",
+            "stack": ["Go", "React", "WebSocket", "SQLite"],
+            "image": "projects/dokhae.webp",
+            "icon": "projects/icon/dokhae.svg",
+            "url": "https://dokhae.devho.net",
+            "host": "dokhae.devho.net"
+        },
+        {
+            "id": "daegu-homes",
+            "name": "통계에 없는 집",
+            "summary": "대구 노후주택 에너지 지도",
+            "description": "난방 에너지 통계에 잡히지 않는 대구의 낡은 단독주택이 어디에 있고, 고치면 탄소가 얼마나 줄어드는지 공공데이터로 보여 주는 데이터 스토리입니다. 2026 대구 기후·환경 공공데이터 AI 공모전 출품작입니다.",
+            "stack": ["Python", "React", "D3", "Go"],
+            "image": "projects/daegu.webp",
+            "icon": "projects/icon/daegu.svg",
+            "url": "https://daegu-homes.devho.net",
+            "host": "daegu-homes.devho.net"
+        }
+    ],
     "Techstack": [
         {
             "type": "Language",
@@ -98,6 +172,6 @@
     ],
     "Education": {
         "day": "2024–2027",
-        "school": "Korea Digital Media High School"
+        "school": "한국디지털미디어고등학교"
     }
 }

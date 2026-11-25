@@ -667,3 +667,15 @@ The only "imagery" in the system is in-product Raycast UI screenshots and small 
 - **Dark mode is the only mode** — no light variant exists in the captured surfaces.
 - **Form validation states** beyond the focused-input border treatment are not present in the captured surfaces.
 - **Authenticated chrome** (account dashboard, billing settings, team management) not in the captured pages.
+
+## Project Notes (devho.net)
+
+How this portfolio applies the system above. Read these before changing the page.
+
+- **Hangul:** the font stack is `Inter` then `Pretendard Variable`. Inter draws Latin and digits, Pretendard draws Hangul.
+- **Hero:** the name in `{typography.display-xl}`, two sentences, one white `{component.button-primary}` (email). No photo and no red stripe band.
+- **Load-bearing visual:** the project list is a working `{component.command-palette-card}`: a search field, rows with real site icons, a detail with a screenshot, and a keycap footer. It filters as you type; arrow keys move, Enter opens the site, and Cmd/Ctrl+K focuses the field. Below 760px the detail opens under its row instead of beside the list.
+- **Row fills:** `surface-hover` (`rgba(255,255,255,0.04)`) and `surface-active` (`rgba(255,255,255,0.08)`) in `src/theme.ts` mark the hovered and selected row. `{colors.surface-card}` on `{colors.surface}` is too faint to show a selection.
+- **Color:** chrome stays monochrome. The only color on the page is inside project icons and screenshots.
+- **Content:** everything on the page comes from `src/config/config.json`. Project screenshots are 1280x800 WebP in `public/projects/`, icons in `public/projects/icon/`.
+- **Motion:** one entrance on load (name, sentences, actions, list, 60ms apart). Selection changes are instant; only the screenshot fades in. Hover effects sit behind `(hover: hover) and (pointer: fine)`, and the entrance drops its travel under `prefers-reduced-motion`.

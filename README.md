@@ -1,5 +1,13 @@
-# My portfolio
+# Portfolio
 
-## https://devho.net/
+심호성's portfolio, live at https://devho.net. React + Vite + TypeScript with styled-components.
 
-<img src="page.png">
+- All content (intro, projects, awards, skills, contact) is in `src/config/config.json`.
+- The design follows `DESIGN.md` (Raycast system); the "Project Notes" section at its end says how this page applies it.
+- Pushing to `main` deploys to production.
+
+```sh
+npm ci
+npm run dev      # http://localhost:5173
+npm run build
+```
