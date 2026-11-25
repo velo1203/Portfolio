@@ -1,12 +1,11 @@
+import { css, keyframes } from "styled-components";
+
 // Tokens follow DESIGN.md (Raycast system). GlobalStyle exposes them as CSS variables.
 export const tokens = {
     canvas: "#07080a",
     surface: "#0d0d0d",
     "surface-elevated": "#101111",
     "surface-card": "#121212",
-    // row fills: the surface ladder alone is too faint to show which row is selected
-    "surface-hover": "rgba(255, 255, 255, 0.04)",
-    "surface-active": "rgba(255, 255, 255, 0.08)",
     hairline: "#242728",
     "hairline-soft": "rgba(255, 255, 255, 0.08)",
     "hairline-strong": "rgba(255, 255, 255, 0.16)",
@@ -35,3 +34,25 @@ export const media = {
     hover: "@media (hover: hover) and (pointer: fine)",
     reducedMotion: "@media (prefers-reduced-motion: reduce)",
 };
+
+const rise = keyframes`
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+`;
+
+const fade = keyframes`
+    from {
+        opacity: 0;
+    }
+`;
+
+/* the entrance on load; each part sets its own delay */
+export const arrive = css`
+    animation: ${rise} 400ms var(--ease-out) both;
+
+    ${media.reducedMotion} {
+        animation-name: ${fade};
+    }
+`;

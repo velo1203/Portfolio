@@ -1,20 +1,22 @@
 import { GlobalStyle } from "./Globalstyle";
-import About from "./components/about/about";
+import Awards from "./components/awards/awards";
 import Hero from "./components/hero/hero";
 import Nav from "./components/nav/nav";
-import Projects from "./components/projects/projects";
+import { Footer, Main, Page } from "./styled.app";
+
+import config from "./config/config.json";
 
 function App() {
     return (
-        <>
+        <Page>
             <GlobalStyle />
             <Nav />
-            <main>
+            <Main>
                 <Hero />
-                <Projects />
-                <About />
-            </main>
-        </>
+                <Awards />
+            </Main>
+            <Footer>© 2026 {config.Name}</Footer>
+        </Page>
     );
 }
 

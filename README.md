@@ -2,7 +2,7 @@
 
 심호성's portfolio, live at https://devho.net. React + Vite + TypeScript with styled-components.
 
-- All content (intro, projects, awards, skills, contact) is in `src/config/config.json`.
+- The name, intro and awards shown on the page are in `src/config/config.json`.
 - The design follows `DESIGN.md` (Raycast system); the "Project Notes" section at its end says how this page applies it.
 - Pushing to `main` deploys to production.
 

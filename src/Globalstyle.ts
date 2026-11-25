@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { media, tokens } from "./theme";
+import { tokens } from "./theme";
 
 const variables = Object.entries(tokens)
     .map(([name, value]) => `--${name}: ${value};`)
@@ -18,12 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
-
-    ${media.reducedMotion} {
-      scroll-behavior: auto;
-    }
   }
 
   body {
@@ -74,12 +69,4 @@ export const GlobalStyle = createGlobalStyle`
     outline-offset: 2px;
   }
 
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
 `;

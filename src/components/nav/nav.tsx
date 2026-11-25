@@ -1,18 +1,12 @@
-import { Bar, Inner, Links, Wordmark } from "./styled.nav";
+import { Bar, Inner, Wordmark } from "./styled.nav";
 
 export default function Nav() {
     return (
-        <Bar id="top">
+        <Bar>
             <Inner>
                 <Wordmark href="/" aria-label="devho 홈">
                     devho.
                 </Wordmark>
-                <Links aria-label="섹션">
-                    <a href="#projects">프로젝트</a>
-                    <a href="#awards">수상</a>
-                    <a href="#skills">기술</a>
-                    <a href="#contact">연락처</a>
-                </Links>
             </Inner>
         </Bar>
     );
