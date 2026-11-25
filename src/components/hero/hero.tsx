@@ -23,7 +23,7 @@ export default function Hero() {
                     {...mail.triggerProps}
                 >
                     <MailIcon ref={mail.ref} size={16} />
-                    이메일 보내기
+                    Contact
                 </Button>
                 <Button
                     href={config.Github}
