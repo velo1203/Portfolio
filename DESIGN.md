@@ -672,10 +672,10 @@ The only "imagery" in the system is in-product Raycast UI screenshots and small 
 
 How this portfolio applies the system above. Read these before changing the page.
 
-- **Scope:** the page is deliberately small: the name, two sentences, and the awards. No photo, no buttons, no project list (owner's decision, 2026-11-25).
+- **Scope:** the name with its intro and two buttons, then awards, skills, education and contact. No photo and no project list (owner's decision, 2026-11-25).
 - **Hangul:** the font stack is `Inter` then `Pretendard Variable`. Inter draws Latin and digits, Pretendard draws Hangul.
-- **Hero:** the name in `{typography.display-xl}` and the intro in `{typography.body-lg}`, centred. No red stripe band.
-- **Awards:** one `{component.feature-card-dark}` holding a row per award, the title on the left and the year on the right, rows split by `{colors.hairline}`.
-- **Layout:** one 640px column. The page is shorter than most windows, so it sits in the vertical middle and the footer stays at the bottom.
-- **Content:** the name, intro and awards come from `src/config/config.json`. `Techstack`, `Education` and `Github` are kept there but not shown.
-- **Motion:** one entrance on load (name, sentences, awards, 60ms apart), which drops its travel under `prefers-reduced-motion`.
+- **Hero:** the name in `{typography.display-xl}`, two sentences, one white `{component.button-primary}` ("Contact", opens an email) and a GitHub button. No red stripe band.
+- **Blocks:** each block has its heading on the left and its rows on the right, split by `{colors.hairline}`; every row shares one label column.
+- **Color:** chrome stays monochrome. Skill logos are drawn as masks in `{colors.mute}`.
+- **Content:** everything on the page comes from `src/config/config.json`.
+- **Motion:** one entrance on load (name, sentences, actions, 60ms apart), which drops its travel under `prefers-reduced-motion`. Hover effects sit behind `(hover: hover) and (pointer: fine)`.

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { tokens } from "./theme";
+import { media, tokens } from "./theme";
 
 const variables = Object.entries(tokens)
     .map(([name, value]) => `--${name}: ${value};`)
@@ -18,7 +18,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+
+    ${media.reducedMotion} {
+      scroll-behavior: auto;
+    }
   }
 
   body {

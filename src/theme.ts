@@ -1,5 +1,3 @@
-import { css, keyframes } from "styled-components";
-
 // Tokens follow DESIGN.md (Raycast system). GlobalStyle exposes them as CSS variables.
 export const tokens = {
     canvas: "#07080a",
@@ -34,25 +32,3 @@ export const media = {
     hover: "@media (hover: hover) and (pointer: fine)",
     reducedMotion: "@media (prefers-reduced-motion: reduce)",
 };
-
-const rise = keyframes`
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-`;
-
-const fade = keyframes`
-    from {
-        opacity: 0;
-    }
-`;
-
-/* the entrance on load; each part sets its own delay */
-export const arrive = css`
-    animation: ${rise} 400ms var(--ease-out) both;
-
-    ${media.reducedMotion} {
-        animation-name: ${fade};
-    }
-`;
