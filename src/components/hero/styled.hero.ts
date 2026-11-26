@@ -56,31 +56,6 @@ export const Name = styled.h1`
     }
 `;
 
-export const Intro = styled.p`
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--body);
-
-    /* one sentence to a line where the screen is wide enough to hold it */
-    span {
-        display: block;
-    }
-
-    ${media.tablet} {
-        max-width: 480px;
-        text-wrap: balance;
-
-        span {
-            display: inline;
-        }
-    }
-
-    ${media.mobile} {
-        margin-top: 16px;
-    }
-`;
-
 export const Actions = styled.div`
     margin-top: 32px;
     display: flex;

@@ -1,6 +1,6 @@
 import { useIconHover } from "@animateicons/react";
 import { GithubIcon, MailIcon } from "@animateicons/react/lucide";
-import { Actions, Button, Intro, Name, Section } from "./styled.hero";
+import { Actions, Button, Name, Section } from "./styled.hero";
 
 import config from "../../config/config.json";
 
@@ -11,11 +11,6 @@ export default function Hero() {
     return (
         <Section>
             <Name>{config.Name}</Name>
-            <Intro>
-                {config.Intro.map((sentence) => (
-                    <span key={sentence}>{sentence} </span>
-                ))}
-            </Intro>
             <Actions>
                 <Button
                     $primary
